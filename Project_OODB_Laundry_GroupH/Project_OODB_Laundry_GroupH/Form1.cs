@@ -20,7 +20,7 @@ namespace Project_OODB_Laundry_GroupH
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-
+            // halo adam
         }
     }
 }
