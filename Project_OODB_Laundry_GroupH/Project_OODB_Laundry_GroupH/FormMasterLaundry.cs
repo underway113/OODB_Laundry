@@ -15,6 +15,13 @@ namespace Project_OODB_Laundry_GroupH
         public FormMasterLaundry()
         {
             InitializeComponent();
+            buttonSave.Enabled = false;
+            buttonCancel.Enabled = false;
+        }
+
+        private void FormMasterLaundry_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

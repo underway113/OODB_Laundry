@@ -15,6 +15,8 @@ namespace Project_OODB_Laundry_GroupH
         public FormManageUser()
         {
             InitializeComponent();
+            buttonSave.Enabled = false;
+            buttonCancel.Enabled = false;
         }
 
         private void button4_Click(object sender, EventArgs e)

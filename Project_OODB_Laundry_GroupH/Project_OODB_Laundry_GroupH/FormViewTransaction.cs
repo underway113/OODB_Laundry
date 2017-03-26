@@ -16,5 +16,10 @@ namespace Project_OODB_Laundry_GroupH
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

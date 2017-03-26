@@ -30,18 +30,18 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxDetail = new System.Windows.Forms.GroupBox();
-            this.groupBoxController = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxLaundryID = new System.Windows.Forms.TextBox();
-            this.textBoxLaundryName = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonInsert = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.textBoxLaundryName = new System.Windows.Forms.TextBox();
+            this.textBoxLaundryID = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBoxController = new System.Windows.Forms.GroupBox();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonInsert = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.groupBoxDetail.SuspendLayout();
             this.groupBoxController.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,54 @@
             this.groupBoxDetail.TabStop = false;
             this.groupBoxDetail.Text = "Detail";
             // 
+            // textBoxPrice
+            // 
+            this.textBoxPrice.Location = new System.Drawing.Point(148, 133);
+            this.textBoxPrice.Name = "textBoxPrice";
+            this.textBoxPrice.Size = new System.Drawing.Size(150, 29);
+            this.textBoxPrice.TabIndex = 1;
+            // 
+            // textBoxLaundryName
+            // 
+            this.textBoxLaundryName.Location = new System.Drawing.Point(148, 85);
+            this.textBoxLaundryName.Name = "textBoxLaundryName";
+            this.textBoxLaundryName.Size = new System.Drawing.Size(150, 29);
+            this.textBoxLaundryName.TabIndex = 1;
+            // 
+            // textBoxLaundryID
+            // 
+            this.textBoxLaundryID.Location = new System.Drawing.Point(148, 37);
+            this.textBoxLaundryID.Name = "textBoxLaundryID";
+            this.textBoxLaundryID.Size = new System.Drawing.Size(150, 29);
+            this.textBoxLaundryID.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 136);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Price";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 24);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Laundry Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 24);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Laundry ID";
+            // 
             // groupBoxController
             // 
             this.groupBoxController.Controls.Add(this.buttonDelete);
@@ -87,73 +135,15 @@
             this.groupBoxController.TabStop = false;
             this.groupBoxController.Text = "Controller";
             // 
-            // label2
+            // buttonDelete
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 24);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Laundry ID";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Laundry Name";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 24);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Price";
-            // 
-            // textBoxLaundryID
-            // 
-            this.textBoxLaundryID.Location = new System.Drawing.Point(148, 37);
-            this.textBoxLaundryID.Name = "textBoxLaundryID";
-            this.textBoxLaundryID.Size = new System.Drawing.Size(150, 29);
-            this.textBoxLaundryID.TabIndex = 1;
-            // 
-            // textBoxLaundryName
-            // 
-            this.textBoxLaundryName.Location = new System.Drawing.Point(148, 85);
-            this.textBoxLaundryName.Name = "textBoxLaundryName";
-            this.textBoxLaundryName.Size = new System.Drawing.Size(150, 29);
-            this.textBoxLaundryName.TabIndex = 1;
-            // 
-            // textBoxPrice
-            // 
-            this.textBoxPrice.Location = new System.Drawing.Point(148, 133);
-            this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(150, 29);
-            this.textBoxPrice.TabIndex = 1;
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonSave.Location = new System.Drawing.Point(107, 54);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(95, 45);
-            this.buttonSave.TabIndex = 0;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = false;
-            // 
-            // buttonInsert
-            // 
-            this.buttonInsert.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonInsert.Location = new System.Drawing.Point(6, 30);
-            this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(95, 45);
-            this.buttonInsert.TabIndex = 0;
-            this.buttonInsert.Text = "Insert";
-            this.buttonInsert.UseVisualStyleBackColor = false;
+            this.buttonDelete.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.buttonDelete.Location = new System.Drawing.Point(6, 126);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(95, 45);
+            this.buttonDelete.TabIndex = 0;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = false;
             // 
             // buttonUpdate
             // 
@@ -165,15 +155,15 @@
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = false;
             // 
-            // buttonDelete
+            // buttonInsert
             // 
-            this.buttonDelete.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonDelete.Location = new System.Drawing.Point(6, 126);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(95, 45);
-            this.buttonDelete.TabIndex = 0;
-            this.buttonDelete.Text = "Delete";
-            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonInsert.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.buttonInsert.Location = new System.Drawing.Point(6, 30);
+            this.buttonInsert.Name = "buttonInsert";
+            this.buttonInsert.Size = new System.Drawing.Size(95, 45);
+            this.buttonInsert.TabIndex = 0;
+            this.buttonInsert.Text = "Insert";
+            this.buttonInsert.UseVisualStyleBackColor = false;
             // 
             // buttonCancel
             // 
@@ -184,6 +174,16 @@
             this.buttonCancel.TabIndex = 0;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.buttonSave.Location = new System.Drawing.Point(107, 54);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(95, 45);
+            this.buttonSave.TabIndex = 0;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = false;
             // 
             // FormMasterLaundry
             // 
@@ -197,6 +197,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormMasterLaundry";
             this.Text = "Laundry";
+            this.Load += new System.EventHandler(this.FormMasterLaundry_Load);
             this.groupBoxDetail.ResumeLayout(false);
             this.groupBoxDetail.PerformLayout();
             this.groupBoxController.ResumeLayout(false);
