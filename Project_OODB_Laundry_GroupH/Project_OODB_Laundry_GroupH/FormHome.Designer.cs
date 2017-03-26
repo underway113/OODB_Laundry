@@ -69,12 +69,14 @@
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
             this.orderToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.orderToolStripMenuItem.Text = "Order";
+            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
             // 
             // giveReviewToolStripMenuItem
             // 
             this.giveReviewToolStripMenuItem.Name = "giveReviewToolStripMenuItem";
             this.giveReviewToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.giveReviewToolStripMenuItem.Text = "Give Review";
+            this.giveReviewToolStripMenuItem.Click += new System.EventHandler(this.giveReviewToolStripMenuItem_Click);
             // 
             // manageProductToolStripMenuItem
             // 
@@ -88,6 +90,7 @@
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
             this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.transactionToolStripMenuItem.Text = "Transaction";
+            this.transactionToolStripMenuItem.Click += new System.EventHandler(this.transactionToolStripMenuItem_Click);
             // 
             // profileToolStripMenuItem
             // 
@@ -104,12 +107,14 @@
             this.manageUserToolStripMenuItem.Name = "manageUserToolStripMenuItem";
             this.manageUserToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.manageUserToolStripMenuItem.Text = "Manage User";
+            this.manageUserToolStripMenuItem.Click += new System.EventHandler(this.manageUserToolStripMenuItem_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
