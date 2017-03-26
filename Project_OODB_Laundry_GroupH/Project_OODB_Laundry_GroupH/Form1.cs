@@ -36,7 +36,9 @@ namespace Project_OODB_Laundry_GroupH
 
         private void linkLabelSignup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            Form form = new FormRegister();
+            this.Visible = false;
+            form.Visible = true;
         }
     }
 }
