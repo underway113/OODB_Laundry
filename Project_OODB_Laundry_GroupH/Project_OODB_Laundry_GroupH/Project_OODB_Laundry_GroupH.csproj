@@ -52,16 +52,61 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChangePassword.Designer.cs">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHome.Designer.cs">
+      <DependentUpon>FormHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManageUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManageUser.Designer.cs">
+      <DependentUpon>FormManageUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMasterLaundry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMasterLaundry.Designer.cs">
+      <DependentUpon>FormMasterLaundry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrder.Designer.cs">
+      <DependentUpon>FormOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRegister.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormRegister.Designer.cs">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReview.Designer.cs">
+      <DependentUpon>FormReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewTransaction.Designer.cs">
+      <DependentUpon>FormViewTransaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHome.resx">
+      <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegister.resx">
       <DependentUpon>FormRegister.cs</DependentUpon>

@@ -32,6 +32,11 @@ namespace Project_OODB_Laundry_GroupH
             {
                 MessageBox.Show("Password Must Be Filled!");
             }
+            else { 
+                Form form = new FormHome();
+                this.Visible = false;
+                form.Visible = true;
+            }
         }
 
         private void linkLabelSignup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
