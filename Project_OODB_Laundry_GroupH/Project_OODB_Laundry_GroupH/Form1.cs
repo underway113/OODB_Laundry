@@ -15,12 +15,28 @@ namespace Project_OODB_Laundry_GroupH
         public FormLogin()
         {
             InitializeComponent();
-            //COMMENT INIT INIT INIT
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            // halo adam
+           
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            if(textBoxEmail.Text == "")
+            {
+                MessageBox.Show("Email Must Be Filled!");
+            }
+            else if(textBoxPassword.Text == "")
+            {
+                MessageBox.Show("Password Must Be Filled!");
+            }
+        }
+
+        private void linkLabelSignup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }
