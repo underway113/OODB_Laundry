@@ -108,6 +108,12 @@
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormManageUser.resx">
+      <DependentUpon>FormManageUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMasterLaundry.resx">
+      <DependentUpon>FormMasterLaundry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRegister.resx">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </EmbeddedResource>

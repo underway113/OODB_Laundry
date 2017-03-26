@@ -16,5 +16,15 @@ namespace Project_OODB_Laundry_GroupH
         {
             InitializeComponent();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormManageUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
