@@ -15,6 +15,20 @@ namespace Project_OODB_Laundry_GroupH
         public FormChangePassword()
         {
             InitializeComponent();
+            init_state_ChangePassword();
+        }
+
+        public void init_state_ChangePassword()
+        {
+            textBoxEmail.Text = "";
+            textBoxOldPassword.Text = "";
+            textBoxNewPassword.Text = "";
+            textBoxConfirmPassword.Text = "";
+        }
+
+        private void buttonChangePassword_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

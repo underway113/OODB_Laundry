@@ -47,10 +47,10 @@
             this.textBoxGrandTotal = new System.Windows.Forms.TextBox();
             this.numericUpDownQuantityListLaundry = new System.Windows.Forms.NumericUpDown();
             this.groupBoxListLaundry = new System.Windows.Forms.GroupBox();
-            this.groupBoxCart = new System.Windows.Forms.GroupBox();
             this.buttonAddToCart = new System.Windows.Forms.Button();
-            this.buttonCheckOut = new System.Windows.Forms.Button();
+            this.groupBoxCart = new System.Windows.Forms.GroupBox();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonCheckOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantityListLaundry)).BeginInit();
             this.groupBoxListLaundry.SuspendLayout();
             this.groupBoxCart.SuspendLayout();
@@ -223,6 +223,16 @@
             this.groupBoxListLaundry.TabStop = false;
             this.groupBoxListLaundry.Text = "List Laundry";
             // 
+            // buttonAddToCart
+            // 
+            this.buttonAddToCart.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.buttonAddToCart.Location = new System.Drawing.Point(494, 172);
+            this.buttonAddToCart.Name = "buttonAddToCart";
+            this.buttonAddToCart.Size = new System.Drawing.Size(122, 52);
+            this.buttonAddToCart.TabIndex = 5;
+            this.buttonAddToCart.Text = "Add to Cart";
+            this.buttonAddToCart.UseVisualStyleBackColor = false;
+            // 
             // groupBoxCart
             // 
             this.groupBoxCart.Controls.Add(this.buttonDelete);
@@ -241,15 +251,15 @@
             this.groupBoxCart.TabStop = false;
             this.groupBoxCart.Text = "Cart";
             // 
-            // buttonAddToCart
+            // buttonDelete
             // 
-            this.buttonAddToCart.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonAddToCart.Location = new System.Drawing.Point(494, 172);
-            this.buttonAddToCart.Name = "buttonAddToCart";
-            this.buttonAddToCart.Size = new System.Drawing.Size(122, 52);
-            this.buttonAddToCart.TabIndex = 5;
-            this.buttonAddToCart.Text = "Add to Cart";
-            this.buttonAddToCart.UseVisualStyleBackColor = false;
+            this.buttonDelete.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.buttonDelete.Location = new System.Drawing.Point(475, 138);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(99, 52);
+            this.buttonDelete.TabIndex = 5;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = false;
             // 
             // buttonCheckOut
             // 
@@ -260,16 +270,6 @@
             this.buttonCheckOut.TabIndex = 5;
             this.buttonCheckOut.Text = "Check Out";
             this.buttonCheckOut.UseVisualStyleBackColor = false;
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonDelete.Location = new System.Drawing.Point(475, 138);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(99, 52);
-            this.buttonDelete.TabIndex = 5;
-            this.buttonDelete.Text = "Delete";
-            this.buttonDelete.UseVisualStyleBackColor = false;
             // 
             // FormOrder
             // 
@@ -286,6 +286,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormOrder";
             this.Text = "Do Transaction";
+            this.Load += new System.EventHandler(this.FormOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantityListLaundry)).EndInit();
             this.groupBoxListLaundry.ResumeLayout(false);
             this.groupBoxListLaundry.PerformLayout();

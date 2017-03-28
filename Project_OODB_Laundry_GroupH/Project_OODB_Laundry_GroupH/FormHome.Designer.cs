@@ -135,7 +135,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimizeBox = false;
             this.Name = "FormHome";
-            this.Text = "FormHome";
+            this.Text = "Home";
             this.Load += new System.EventHandler(this.FormHome_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

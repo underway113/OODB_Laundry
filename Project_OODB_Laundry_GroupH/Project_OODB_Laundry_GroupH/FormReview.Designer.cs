@@ -33,9 +33,9 @@
             this.groupBoxReview = new System.Windows.Forms.GroupBox();
             this.groupBoxNewReview = new System.Windows.Forms.GroupBox();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxReviewID = new System.Windows.Forms.TextBox();
             this.richTextBoxContentNewReview = new System.Windows.Forms.RichTextBox();
+            this.textBoxReviewID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBoxNewReview.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,14 +94,13 @@
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // richTextBoxContentNewReview
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 24);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Review ID";
+            this.richTextBoxContentNewReview.Location = new System.Drawing.Point(11, 55);
+            this.richTextBoxContentNewReview.Name = "richTextBoxContentNewReview";
+            this.richTextBoxContentNewReview.Size = new System.Drawing.Size(477, 85);
+            this.richTextBoxContentNewReview.TabIndex = 2;
+            this.richTextBoxContentNewReview.Text = "";
             // 
             // textBoxReviewID
             // 
@@ -110,13 +109,14 @@
             this.textBoxReviewID.Size = new System.Drawing.Size(109, 29);
             this.textBoxReviewID.TabIndex = 1;
             // 
-            // richTextBoxContentNewReview
+            // label2
             // 
-            this.richTextBoxContentNewReview.Location = new System.Drawing.Point(11, 55);
-            this.richTextBoxContentNewReview.Name = "richTextBoxContentNewReview";
-            this.richTextBoxContentNewReview.Size = new System.Drawing.Size(477, 85);
-            this.richTextBoxContentNewReview.TabIndex = 2;
-            this.richTextBoxContentNewReview.Text = "";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(66, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 24);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Review ID";
             // 
             // FormReview
             // 
@@ -131,6 +131,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormReview";
             this.Text = "Review ID";
+            this.Load += new System.EventHandler(this.FormReview_Load);
             this.groupBoxNewReview.ResumeLayout(false);
             this.groupBoxNewReview.PerformLayout();
             this.ResumeLayout(false);

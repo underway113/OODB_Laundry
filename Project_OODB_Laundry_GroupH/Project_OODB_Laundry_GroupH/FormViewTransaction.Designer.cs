@@ -133,6 +133,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormViewTransaction";
             this.Text = "View Transaction";
+            this.Load += new System.EventHandler(this.FormViewTransaction_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

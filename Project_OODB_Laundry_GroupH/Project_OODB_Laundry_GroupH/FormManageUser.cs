@@ -15,6 +15,25 @@ namespace Project_OODB_Laundry_GroupH
         public FormManageUser()
         {
             InitializeComponent();
+            init_state_ManageUser();
+        }
+
+        public void init_state_ManageUser()
+        {
+            
+                        
+            textBoxUserID.Enabled = false;
+            textBoxUsername.Enabled = false;
+            textBoxPassword.Enabled = false;
+            textBoxEmail.Enabled = false;
+            richTextBoxAddress.Enabled = false;
+            textBoxPhoneNumber.Enabled = false;
+            comboBoxRolename.Enabled = false;
+
+            buttonInsert.Enabled = true;
+            buttonUpdate.Enabled = true;
+            buttonDelete.Enabled = true;
+
             buttonSave.Enabled = false;
             buttonCancel.Enabled = false;
         }
@@ -27,6 +46,11 @@ namespace Project_OODB_Laundry_GroupH
         private void FormManageUser_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            init_state_ManageUser();
         }
     }
 }

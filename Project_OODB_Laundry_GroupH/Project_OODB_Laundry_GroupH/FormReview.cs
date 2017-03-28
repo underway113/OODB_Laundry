@@ -16,5 +16,16 @@ namespace Project_OODB_Laundry_GroupH
         {
             InitializeComponent();
         }
+
+        public void init_state_review()
+        {
+            textBoxReviewID.Enabled = true;
+            textBoxReviewID.Text = "";
+        }
+
+        private void FormReview_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
