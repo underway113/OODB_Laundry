@@ -15,6 +15,13 @@ namespace Project_OODB_Laundry_GroupH
         public FormLogin()
         {
             InitializeComponent();
+            init_state_login();
+        }
+
+        public void init_state_login()
+        {
+            textBoxEmail.Text = "";
+            textBoxPassword.Text = "";
         }
 
         private void FormLogin_Load(object sender, EventArgs e)

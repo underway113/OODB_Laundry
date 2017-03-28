@@ -87,7 +87,7 @@
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.Location = new System.Drawing.Point(171, 93);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(219, 29);
             this.textBoxEmail.TabIndex = 2;
@@ -96,10 +96,11 @@
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(171, 145);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(219, 29);
             this.textBoxPassword.TabIndex = 2;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // buttonLogin
             // 
@@ -107,7 +108,7 @@
             this.buttonLogin.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.Location = new System.Drawing.Point(126, 210);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(6);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(200, 76);
             this.buttonLogin.TabIndex = 3;
@@ -130,7 +131,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

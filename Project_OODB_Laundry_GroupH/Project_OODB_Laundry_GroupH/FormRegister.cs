@@ -15,6 +15,17 @@ namespace Project_OODB_Laundry_GroupH
         public FormRegister()
         {
             InitializeComponent();
+            init_state_register();
+        }
+
+        public void init_state_register()
+        {
+            textBoxUsername.Text = "";
+            textBoxPassword.Text = "";
+            textBoxConfirmPassword.Text = "";
+            textBoxEmail.Text = "";
+            textBoxPhoneNumber.Text = "";
+            richTextBoxAddress.Text = "";
         }
 
         private void FormRegister_Load(object sender, EventArgs e)
@@ -115,7 +126,7 @@ namespace Project_OODB_Laundry_GroupH
             {
                 MessageBox.Show("Address Must be Filled");
             }
-            else if (richTextBoxAddress.Text.ToLower().Substring(richTextBoxAddress.Text.Length-6) != "street")
+            else if (richTextBoxAddress.Text.Length<6 ||richTextBoxAddress.Text.ToLower().Substring(richTextBoxAddress.Text.Length-6) != "street")
             {
                 MessageBox.Show("Address Must be Ends with 'street'");
             }
