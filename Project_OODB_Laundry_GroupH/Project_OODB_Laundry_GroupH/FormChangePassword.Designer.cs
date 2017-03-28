@@ -105,6 +105,7 @@
             this.textBoxOldPassword.Name = "textBoxOldPassword";
             this.textBoxOldPassword.Size = new System.Drawing.Size(187, 29);
             this.textBoxOldPassword.TabIndex = 1;
+            this.textBoxOldPassword.UseSystemPasswordChar = true;
             // 
             // textBoxNewPassword
             // 
@@ -113,6 +114,7 @@
             this.textBoxNewPassword.Name = "textBoxNewPassword";
             this.textBoxNewPassword.Size = new System.Drawing.Size(187, 29);
             this.textBoxNewPassword.TabIndex = 1;
+            this.textBoxNewPassword.UseSystemPasswordChar = true;
             // 
             // textBoxConfirmPassword
             // 
@@ -121,6 +123,7 @@
             this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             this.textBoxConfirmPassword.Size = new System.Drawing.Size(187, 29);
             this.textBoxConfirmPassword.TabIndex = 1;
+            this.textBoxConfirmPassword.UseSystemPasswordChar = true;
             // 
             // buttonChangePassword
             // 
