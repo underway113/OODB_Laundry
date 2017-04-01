@@ -14,6 +14,13 @@ namespace Project_OODB_Laundry_GroupH
     
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.HeaderTransaction = new HashSet<HeaderTransaction>();
+            this.Review = new HashSet<Review>();
+        }
+    
         public string UserID { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }
@@ -21,5 +28,10 @@ namespace Project_OODB_Laundry_GroupH
         public string UserAddress { get; set; }
         public string UserPhoneNumber { get; set; }
         public string RoleName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HeaderTransaction> HeaderTransaction { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Review> Review { get; set; }
     }
 }

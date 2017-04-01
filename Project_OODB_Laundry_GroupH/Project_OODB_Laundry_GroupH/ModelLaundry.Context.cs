@@ -13,10 +13,10 @@ namespace Project_OODB_Laundry_GroupH
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DatabaseLaundryEntities : DbContext
+    public partial class DatabaseLaundryEntities1 : DbContext
     {
-        public DatabaseLaundryEntities()
-            : base("name=DatabaseLaundryEntities")
+        public DatabaseLaundryEntities1()
+            : base("name=DatabaseLaundryEntities1")
         {
         }
     
@@ -29,7 +29,6 @@ namespace Project_OODB_Laundry_GroupH
         public virtual DbSet<HeaderTransaction> HeaderTransaction { get; set; }
         public virtual DbSet<PriceList> PriceList { get; set; }
         public virtual DbSet<Review> Review { get; set; }
-        public virtual DbSet<Table> Table { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

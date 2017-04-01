@@ -14,8 +14,18 @@ namespace Project_OODB_Laundry_GroupH
     
     public partial class PriceList
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PriceList()
+        {
+            this.DetailTransaction = new HashSet<DetailTransaction>();
+        }
+    
         public string ProductID { get; set; }
         public string ProductName { get; set; }
         public Nullable<int> ProductPrice { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetailTransaction> DetailTransaction { get; set; }
+        public virtual Review Review { get; set; }
     }
 }

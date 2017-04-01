@@ -18,5 +18,8 @@ namespace Project_OODB_Laundry_GroupH
         public string ProductID { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<int> Price { get; set; }
+    
+        public virtual HeaderTransaction HeaderTransaction { get; set; }
+        public virtual PriceList PriceList { get; set; }
     }
 }

@@ -14,8 +14,18 @@ namespace Project_OODB_Laundry_GroupH
     
     public partial class HeaderTransaction
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HeaderTransaction()
+        {
+            this.DetailTransaction = new HashSet<DetailTransaction>();
+        }
+    
         public string TransactionID { get; set; }
         public string UserID { get; set; }
         public string Status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetailTransaction> DetailTransaction { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

@@ -155,9 +155,6 @@
     <Compile Include="Review.cs">
       <DependentUpon>ModelLaundry.tt</DependentUpon>
     </Compile>
-    <Compile Include="Table.cs">
-      <DependentUpon>ModelLaundry.tt</DependentUpon>
-    </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>ModelLaundry.tt</DependentUpon>
     </Compile>
