@@ -12,6 +12,7 @@ namespace Project_OODB_Laundry_GroupH
 {
     public partial class FormLogin : Form
     {
+        DatabaseLaundryEntities1 db = new DatabaseLaundryEntities1();
         public FormLogin()
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace Project_OODB_Laundry_GroupH
             {
                 MessageBox.Show("Password Must Be Filled!");
             }
-            else { 
+            else {
                 Form form = new FormHome();
                 this.Visible = false;
                 form.Visible = true;

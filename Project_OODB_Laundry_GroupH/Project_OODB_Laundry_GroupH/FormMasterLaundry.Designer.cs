@@ -42,8 +42,10 @@
             this.buttonInsert = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBoxDetail.SuspendLayout();
             this.groupBoxController.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -186,12 +188,21 @@
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 36);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(520, 199);
+            this.dataGridView1.TabIndex = 3;
+            // 
             // FormMasterLaundry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkTurquoise;
             this.ClientSize = new System.Drawing.Size(542, 436);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBoxController);
             this.Controls.Add(this.groupBoxDetail);
             this.Controls.Add(this.label1);
@@ -202,6 +213,7 @@
             this.groupBoxDetail.ResumeLayout(false);
             this.groupBoxDetail.PerformLayout();
             this.groupBoxController.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,5 +235,6 @@
         private System.Windows.Forms.Button buttonInsert;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
