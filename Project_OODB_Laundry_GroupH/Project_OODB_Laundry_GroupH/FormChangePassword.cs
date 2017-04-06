@@ -12,6 +12,7 @@ namespace Project_OODB_Laundry_GroupH
 {
     public partial class FormChangePassword : Form
     {
+        DatabaseLaundryEntities1 db = new DatabaseLaundryEntities1();
         public FormChangePassword()
         {
             InitializeComponent();
@@ -29,21 +30,29 @@ namespace Project_OODB_Laundry_GroupH
 
         private void buttonChangePassword_Click(object sender, EventArgs e)
         {
-            if(textBoxEmail.Text == "")
+            var user = (from x in db.Users
+                        where x.UserEmail == FormLogin.emailGlobal && x.UserPassword == FormLogin.passwordGlobal
+                        select x).FirstOrDefault();
+            if (textBoxEmail.Text == "")
             {
                 MessageBox.Show("Email must be filled");
             }
-            //BELUM >> If Email is not the same as the user’s email, then show error message “Email is wrong”.
-            else if(textBoxOldPassword.Text == "")
+            else if (textBoxEmail.Text != FormLogin.emailGlobal)
+            {
+                MessageBox.Show("Email is wrong");
+            }
+            else if (textBoxOldPassword.Text == "")
             {
                 MessageBox.Show("Old Password must be filled");
             }
-            //BELUM >> If Old Password is not the same as the user’s password, then show error message “Old Password is wrong”.
-            else if(textBoxNewPassword.Text == "")
+            else if (textBoxOldPassword.Text != FormLogin.passwordGlobal)
+            {
+                MessageBox.Show("Old Password is wrong");
+            }
+            else if (textBoxNewPassword.Text == "")
             {
                 MessageBox.Show("New Password must be filled");
             }
-            //BELUM >> If Confirm Password is empty, then show error message “Confirm Password must be filled”.
             else if (textBoxConfirmPassword.Text == "")
             {
                 MessageBox.Show("Confirm Password must be filled");
@@ -52,7 +61,15 @@ namespace Project_OODB_Laundry_GroupH
             {
                 MessageBox.Show("New Password and Confirm Password must be the same");
             }
+            else
+            {
+                user.UserPassword = textBoxNewPassword.Text;
+                db.SaveChanges();
+                FormLogin.passwordGlobal = textBoxNewPassword.Text;
+                MessageBox.Show("Your New Password has been updated");
+                this.Visible = false;
 
+            }
         }
     }
 }

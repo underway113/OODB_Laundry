@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="60db4d9deac04d6a9da915690db4164b" Name="Diagram1">
-        <EntityTypeShape EntityType="DatabaseLaundryModel.DetailTransaction" Width="1.5" PointX="1.5" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseLaundryModel.HeaderTransaction" Width="1.5" PointX="1.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseLaundryModel.PriceList" Width="1.5" PointX="4" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseLaundryModel.Review" Width="1.5" PointX="7.125" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseLaundryModel.Users" Width="1.875" PointX="3.875" PointY="0.5" IsExpanded="true" />
-        <AssociationConnector Association="DatabaseLaundryModel.HeaderTransactionDetailTransaction" />
-        <AssociationConnector Association="DatabaseLaundryModel.PriceListDetailTransaction" />
-        <AssociationConnector Association="DatabaseLaundryModel.UsersHeaderTransaction" />
-        <AssociationConnector Association="DatabaseLaundryModel.UsersReview" />
-        <AssociationConnector Association="DatabaseLaundryModel.ReviewPriceList" />
+        <EntityTypeShape EntityType="DatabaseLaundryModel.DetailTransaction" Width="1.5" PointX="8.25" PointY="3.75" />
+        <EntityTypeShape EntityType="DatabaseLaundryModel.HeaderTransaction" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DatabaseLaundryModel.PriceList" Width="1.5" PointX="8.375" PointY="1" />
+        <EntityTypeShape EntityType="DatabaseLaundryModel.Review" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DatabaseLaundryModel.Users" Width="1.5" PointX="1.875" PointY="1.75" />
+        <AssociationConnector Association="DatabaseLaundryModel.FK_DetailTransaction_HeaderTransaction" />
+        <AssociationConnector Association="DatabaseLaundryModel.FK_DetailTransaction_PriceList" />
+        <AssociationConnector Association="DatabaseLaundryModel.FK_HeaderTransaction_Users" />
+        <AssociationConnector Association="DatabaseLaundryModel.FK_Review_PriceList" />
+        <AssociationConnector Association="DatabaseLaundryModel.FK_Review_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

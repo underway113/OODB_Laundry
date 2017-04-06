@@ -16,12 +16,21 @@ namespace Project_OODB_Laundry_GroupH
         {
             InitializeComponent();
             init_state_ViewTransaction();
+
         }
 
         public void init_state_ViewTransaction()
         {
             textBoxTotalQuantity.Enabled = false;
             textBoxGrandTotal.Enabled = false;
+            if (FormLogin.roleGlobal == "Admin")
+            {
+                buttonUpdateStatus.Visible = true;
+            }
+            else if (FormLogin.roleGlobal == "Member")
+            {
+                buttonUpdateStatus.Visible = false;
+            }
         }
         private void label1_Click(object sender, EventArgs e)
         {

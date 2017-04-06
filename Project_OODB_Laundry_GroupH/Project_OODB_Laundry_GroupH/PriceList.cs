@@ -18,6 +18,7 @@ namespace Project_OODB_Laundry_GroupH
         public PriceList()
         {
             this.DetailTransaction = new HashSet<DetailTransaction>();
+            this.Review = new HashSet<Review>();
         }
     
         public string ProductID { get; set; }
@@ -26,6 +27,7 @@ namespace Project_OODB_Laundry_GroupH
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetailTransaction> DetailTransaction { get; set; }
-        public virtual Review Review { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Review> Review { get; set; }
     }
 }

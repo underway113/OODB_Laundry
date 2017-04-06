@@ -15,6 +15,27 @@ namespace Project_OODB_Laundry_GroupH
         public FormHome()
         {
             InitializeComponent();
+            if (FormLogin.roleGlobal == "Admin")
+            {
+                orderToolStripMenuItem.Visible = false;
+                giveReviewToolStripMenuItem.Visible = false;
+                manageProductToolStripMenuItem.Visible = true;
+                transactionToolStripMenuItem.Visible = true;
+                manageUserToolStripMenuItem.Visible = true;
+                changePasswordToolStripMenuItem.Visible = true;
+                logOutToolStripMenuItem.Visible = true;
+
+            }
+            else if (FormLogin.roleGlobal == "Member")
+            {
+                orderToolStripMenuItem.Visible = true;
+                giveReviewToolStripMenuItem.Visible = true;
+                manageProductToolStripMenuItem.Visible = false;
+                transactionToolStripMenuItem.Visible = true;
+                manageUserToolStripMenuItem.Visible = false;
+                changePasswordToolStripMenuItem.Visible = true;
+                logOutToolStripMenuItem.Visible = true;
+            }
         }
 
         private void FormHome_Load(object sender, EventArgs e)

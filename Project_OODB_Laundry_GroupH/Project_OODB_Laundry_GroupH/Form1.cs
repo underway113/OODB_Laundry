@@ -30,9 +30,46 @@ namespace Project_OODB_Laundry_GroupH
            
         }
 
+        private static string _roleGlobal="";
+        private static string _passwordGlobal = "";
+        private static string _emailGlobal = "";
+        public static string roleGlobal
+        {
+            get // this makes you to access value in form2
+            {
+                return _roleGlobal;
+            }
+        }
+        public static string passwordGlobal
+        {
+            get // this makes you to access value in form2
+            {
+                return _passwordGlobal;
+            }
+            set
+            {
+                _passwordGlobal = value;
+            }
+        }
+        public static string emailGlobal
+        {
+            get // this makes you to access value in form2
+            {
+                return _emailGlobal;
+            }
+            
+        }
+
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if(textBoxEmail.Text == "")
+            string email = textBoxEmail.Text;
+            string pass = textBoxPassword.Text;
+            var user = (from x in db.Users
+                        where x.UserEmail == email && x.UserPassword == pass
+                        select x).FirstOrDefault();
+            
+
+            if (textBoxEmail.Text == "")
             {
                 MessageBox.Show("Email Must Be Filled!");
             }
@@ -41,9 +78,20 @@ namespace Project_OODB_Laundry_GroupH
                 MessageBox.Show("Password Must Be Filled!");
             }
             else {
-                Form form = new FormHome();
-                this.Visible = false;
-                form.Visible = true;
+                if(user == null)
+                {
+                    MessageBox.Show("No User Found!");
+                }
+                else
+                {
+                    _roleGlobal = user.RoleName;
+                    _emailGlobal = user.UserEmail;
+                    _passwordGlobal = user.UserPassword;
+                    Form form = new FormHome();
+                    this.Visible = false;
+                    form.Visible = true;
+                }
+                
             }
         }
 

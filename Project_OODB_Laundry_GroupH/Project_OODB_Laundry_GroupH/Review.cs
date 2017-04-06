@@ -14,19 +14,12 @@ namespace Project_OODB_Laundry_GroupH
     
     public partial class Review
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Review()
-        {
-            this.PriceList = new HashSet<PriceList>();
-        }
-    
         public string ReviewID { get; set; }
         public string Review1 { get; set; }
         public string ProductID { get; set; }
         public string UserID { get; set; }
     
+        public virtual PriceList PriceList { get; set; }
         public virtual Users Users { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PriceList> PriceList { get; set; }
     }
 }

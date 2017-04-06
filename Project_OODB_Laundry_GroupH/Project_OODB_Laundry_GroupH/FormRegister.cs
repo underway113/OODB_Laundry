@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace Project_OODB_Laundry_GroupH
 {
     public partial class FormRegister : Form
@@ -26,6 +25,7 @@ namespace Project_OODB_Laundry_GroupH
             textBoxEmail.Text = "";
             textBoxPhoneNumber.Text = "";
             richTextBoxAddress.Text = "";
+           
         }
 
         private void FormRegister_Load(object sender, EventArgs e)
@@ -39,9 +39,10 @@ namespace Project_OODB_Laundry_GroupH
             this.Visible = false;
             form.Visible = true;
         }
-
         public Boolean validateEmail(String email)
         {
+            
+
             int flagAt = 0, flagDot = 0;
             foreach (char c in email)
             {
