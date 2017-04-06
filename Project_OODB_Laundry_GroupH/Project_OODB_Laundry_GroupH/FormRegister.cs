@@ -11,6 +11,7 @@ namespace Project_OODB_Laundry_GroupH
 {
     public partial class FormRegister : Form
     {
+        DatabaseLaundryEntities1 db = new DatabaseLaundryEntities1();
         public FormRegister()
         {
             InitializeComponent();
@@ -131,7 +132,38 @@ namespace Project_OODB_Laundry_GroupH
             {
                 MessageBox.Show("Address Must be Ends with 'street'");
             }
+            else
+            {
+                int id = (from x in db.Users select x).ToList().Count + 1;
+                String newId = "";
+                if (id < 10)
+                {
+                    newId = "US00" + id;
+                }
+                else if (id < 100)
+                {
+                    newId = "US0" + id;
+                }
+                else
+                {
+                    newId = "US" + id;
+                }
 
+                Users newUser = new Users();
+                newUser.UserID = newId;
+                newUser.UserName = textBoxUsername.Text;
+                newUser.UserPassword = textBoxPassword.Text;
+                newUser.UserEmail = textBoxEmail.Text;
+                newUser.UserAddress = richTextBoxAddress.Text;
+                newUser.UserPhoneNumber = textBoxPhoneNumber.Text;
+                newUser.RoleName = "Member";
+                db.Users.Add(newUser);
+                db.SaveChanges();
+                MessageBox.Show("New User has been Created!");
+                Form form = new FormLogin();
+                this.Visible = false;
+                form.Visible = true;
+            }
         }
     }
 }
