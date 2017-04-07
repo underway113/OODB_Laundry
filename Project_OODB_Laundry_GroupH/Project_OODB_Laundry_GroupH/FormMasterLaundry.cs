@@ -198,15 +198,13 @@ namespace Project_OODB_Laundry_GroupH
                     var priceList = (from x in db.PriceList where x.ProductID == textBoxLaundryID.Text select x).FirstOrDefault();
                     db.PriceList.Remove(priceList);
                     db.SaveChanges();
-                    MessageBox.Show("Succesfully delete a product");
-                    loadData();
-                    init_state_MasterLaundryForm();
+                    MessageBox.Show("Succesfully delete a product"); 
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    loadData();
-                    init_state_MasterLaundryForm();
                 }
+                loadData();
+                init_state_MasterLaundryForm();
             }
         }
     }
