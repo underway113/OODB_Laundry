@@ -23,8 +23,6 @@ namespace Project_OODB_Laundry_GroupH
         public void loadData()
         {
             dataGridView1.DataSource = (from x in db.PriceList select new { x.ProductID ,x.ProductName,x.ProductPrice}).ToList();
-            dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
-            dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
         }
         public void init_state_MasterLaundryForm()
         {

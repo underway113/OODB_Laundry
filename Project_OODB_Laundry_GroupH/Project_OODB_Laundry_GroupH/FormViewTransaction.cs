@@ -29,13 +29,25 @@ namespace Project_OODB_Laundry_GroupH
             else if (FormLogin.roleGlobal == "Member")
             {
                 dataGridView1.DataSource = (from x in db.HeaderTransaction where x.UserID == FormLogin.userIDGlobal select new { x.TransactionID, x.Status }).ToList();
-              
+               
             }
-            dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
-            dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
-            dataGridView2.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
-            dataGridView2.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
         }
+        public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string selected = dataGridView1.SelectedRows[0].Cells["TransactionID"].Value.ToString();
+            var query = (from u in db.Users
+                         join ht in db.HeaderTransaction on u.UserID equals ht.UserID
+                         join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
+                         join p in db.PriceList on dt.ProductID equals p.ProductID
+                         where selected == dt.TransactionID
+                         select new { p.ProductName, dt.Quantity, dt.Price });
+            dataGridView2.DataSource = query.ToList();
+
+            textBoxTotalQuantity.Text = dataGridView2.SelectedRows[0].Cells["Quantity"].Value.ToString();
+            textBoxGrandTotal.Text = dataGridView2.SelectedRows[0].Cells["Price"].Value.ToString();
+        }
+
+
         public void init_state_ViewTransaction()
         {
             textBoxTotalQuantity.Enabled = false;
@@ -49,10 +61,31 @@ namespace Project_OODB_Laundry_GroupH
                 buttonUpdateStatus.Visible = false;
             }
         }
-        
+
         private void buttonUpdateStatus_Click(object sender, EventArgs e)
         {
+            if (textBoxTotalQuantity.Text == "")
+            {
+                MessageBox.Show("Please Choose Transaction Header Data First");
+            }
+            else
+            {
+                string selected = dataGridView1.SelectedRows[0].Cells["TransactionID"].Value.ToString();
+                var checkStat = (from ht in db.HeaderTransaction where selected == ht.TransactionID select ht).FirstOrDefault();
+                if(checkStat.Status == "Waiting")
+                {
+                    checkStat.Status = "Washing";
+                    db.SaveChanges();
+                }
 
+                else if(checkStat.Status == "Washing")
+                {
+                    checkStat.Status = "Finished";
+                    db.SaveChanges();
+                }
+                loadData();
+                init_state_ViewTransaction();
+            }
         }
     }
 }

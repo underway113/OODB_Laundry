@@ -30,9 +30,6 @@ namespace Project_OODB_Laundry_GroupH
 
         private void buttonChangePassword_Click(object sender, EventArgs e)
         {
-            var user = (from x in db.Users
-                        where x.UserEmail == FormLogin.emailGlobal && x.UserPassword == FormLogin.passwordGlobal
-                        select x).FirstOrDefault();
             if (textBoxEmail.Text == "")
             {
                 MessageBox.Show("Email must be filled");
@@ -63,6 +60,9 @@ namespace Project_OODB_Laundry_GroupH
             }
             else
             {
+                var user = (from x in db.Users
+                            where x.UserEmail == FormLogin.emailGlobal && x.UserPassword == FormLogin.passwordGlobal
+                            select x).FirstOrDefault();
                 user.UserPassword = textBoxNewPassword.Text;
                 db.SaveChanges();
                 FormLogin.passwordGlobal = textBoxNewPassword.Text;
