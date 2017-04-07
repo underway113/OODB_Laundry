@@ -77,8 +77,6 @@ namespace Project_OODB_Laundry_GroupH
         int flagUpdate = 0;
         private void buttonInsert_Click(object sender, EventArgs e)
         {
-
-            //int last = (from x in db.PriceList select x).ToList().Count;
             string lastRow =  (from x in db.PriceList
                               orderby x.ProductID descending
                              select x.ProductID).First();

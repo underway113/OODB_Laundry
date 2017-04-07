@@ -22,12 +22,20 @@ namespace Project_OODB_Laundry_GroupH
         }
         public void loadData()
         {
-            dataGridView1.DataSource = (from x in db.Users select x).ToList();
+            dataGridView1.DataSource = (from x in db.Users select new { x.UserID, x.UserName, x.UserPassword, x.UserEmail, x.UserAddress, x.UserPhoneNumber, x.RoleName }).ToList();
             dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
             dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
         }
         public void init_state_ManageUser()
         {
+            textBoxUserID.Text = "";
+            textBoxUsername.Text = "";
+            textBoxPassword.Text = "";
+            textBoxEmail.Text = "";
+            richTextBoxAddress.Text = "";
+            textBoxPhoneNumber.Text = "";
+            comboBoxRolename.Text = "";
+
             textBoxUserID.Enabled = false;
             textBoxUsername.Enabled = false;
             textBoxPassword.Enabled = false;
@@ -60,12 +68,79 @@ namespace Project_OODB_Laundry_GroupH
                 comboBoxRolename.Text = "Member";
             }
         }
+        public Boolean validateEmail(String email)
+        {
 
+
+            int flagAt = 0, flagDot = 0;
+            foreach (char c in email)
+            {
+                if (c == '@')
+                {
+                    flagAt++;
+                }
+                if (c == '.')
+                {
+                    flagDot = 1;
+                }
+            }
+            if (flagAt > 1 || flagDot != 1)
+            {
+                return false;
+            }
+            if (email.IndexOf('@') == 0 || email.IndexOf('@') == email.Length - 1)
+            {
+                return false;
+            }
+            if (email.IndexOf('@') - email.IndexOf('.') == 1 || email.IndexOf('@') - email.IndexOf('.') == -1)
+            {
+                return false;
+            }
+            return true;
+        }
+        public static bool IsAllLetters(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsLetter(c))
+                    return false;
+            }
+            return true;
+        }
+        public static bool IsAllDigits(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
+
+        string newId = "";
         int flagInsert = 0;
         int flagUpdate = 0;
         private void buttonInsert_Click(object sender, EventArgs e)
         {
-            //Belum Auto Generate UserID
+            string lastRow = (from x in db.Users
+                              orderby x.UserID descending
+                              select x.UserID).First();
+            int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3)) + 1;
+            
+            if (id < 10)
+            {
+                newId = "US00" + id;
+            }
+            else if (id < 100)
+            {
+                newId = "US0" + id;
+            }
+            else
+            {
+                newId = "US" + id;
+            }
+
+
             textBoxUserID.Enabled = false;
             textBoxUsername.Enabled = true;
             textBoxPassword.Enabled = true;
@@ -74,7 +149,7 @@ namespace Project_OODB_Laundry_GroupH
             textBoxPhoneNumber.Enabled = true;
             comboBoxRolename.Enabled = true;
 
-            textBoxUserID.Text = "";
+            textBoxUserID.Text = newId;
             textBoxUsername.Text = "";
             textBoxPassword.Text = "";
             textBoxEmail.Text = "";
@@ -88,7 +163,6 @@ namespace Project_OODB_Laundry_GroupH
 
             buttonSave.Enabled = true;
             buttonCancel.Enabled = true;
-
 
             flagInsert = 1;
         }
@@ -146,11 +220,88 @@ namespace Project_OODB_Laundry_GroupH
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
+            if (textBoxUsername.Text == "")
+            {
+                MessageBox.Show("Username Must be Filled");
+            }
+            else if (!IsAllLetters(textBoxUsername.Text))
+            {
+                MessageBox.Show("Username Must be alphabet");
+            }
+            else if (textBoxPassword.Text == "")
+            {
+                MessageBox.Show("Password Must be Filled");
+            }
+            else if (textBoxEmail.Text == "")
+            {
+                MessageBox.Show("Email Must be Filled");
+            }
+            else if (validateEmail(textBoxEmail.Text) == false)
+            {
+                MessageBox.Show("Email is not valid");
+            }
+            else if (richTextBoxAddress.Text == "")
+            {
+                MessageBox.Show("Address Must be Filled");
+            }
+            else if (richTextBoxAddress.Text.Length < 6 || richTextBoxAddress.Text.ToLower().Substring(richTextBoxAddress.Text.Length - 6) != "street")
+            {
+                MessageBox.Show("Address Must be Ends with 'street'");
+            }
+            else if (textBoxPhoneNumber.Text == "")
+            {
+                MessageBox.Show("Phone Number Must be Filled");
+            }
+            else if (!IsAllDigits(textBoxPhoneNumber.Text))
+            {
+                MessageBox.Show("Phone Number must be numeric");
+            }
+            else if (comboBoxRolename.Text == "")
+            {
+                MessageBox.Show("Please Choose the Role");
+            }
+            else
+            {
+                if (flagInsert == 1)
+                {
+                    Users newUser = new Users();
+                    newUser.UserID = newId;
+                    newUser.UserName = textBoxUsername.Text;
+                    newUser.UserPassword = textBoxPassword.Text;
+                    newUser.UserEmail = textBoxEmail.Text;
+                    newUser.UserAddress = richTextBoxAddress.Text;
+                    newUser.UserPhoneNumber = textBoxPhoneNumber.Text;
+                    newUser.RoleName = comboBoxRolename.Text;
+
+                    db.Users.Add(newUser);
+                    flagInsert = 0;
+                    db.SaveChanges();
+                }
+                else if (flagUpdate == 1)
+                {
+                    var users = (from x in db.Users
+                                     where x.UserID == textBoxUserID.Text
+                                     select x).FirstOrDefault();
+                    users.UserName = textBoxUsername.Text;
+                    users.UserPassword = textBoxPassword.Text;
+                    users.UserEmail = textBoxEmail.Text;
+                    users.UserAddress = richTextBoxAddress.Text;
+                    users.UserPhoneNumber = textBoxPhoneNumber.Text;
+                    users.RoleName = comboBoxRolename.Text;
+
+                    flagUpdate = 0;
+                    db.SaveChanges();
+                }
+                MessageBox.Show("User has been inserted/updated!");
+                loadData();
+                init_state_ManageUser();
+            }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            flagInsert = 0;
+            flagUpdate = 0;
             init_state_ManageUser();
             loadData();
         }
