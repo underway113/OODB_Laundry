@@ -215,7 +215,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormMasterLaundry";
             this.Text = "Laundry";
-            this.Load += new System.EventHandler(this.FormMasterLaundry_Load);
             this.groupBoxDetail.ResumeLayout(false);
             this.groupBoxDetail.PerformLayout();
             this.groupBoxController.ResumeLayout(false);

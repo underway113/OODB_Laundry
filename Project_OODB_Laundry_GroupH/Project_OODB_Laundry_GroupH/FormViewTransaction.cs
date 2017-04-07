@@ -32,12 +32,8 @@ namespace Project_OODB_Laundry_GroupH
                 buttonUpdateStatus.Visible = false;
             }
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormViewTransaction_Load(object sender, EventArgs e)
+        
+        private void buttonUpdateStatus_Click(object sender, EventArgs e)
         {
 
         }

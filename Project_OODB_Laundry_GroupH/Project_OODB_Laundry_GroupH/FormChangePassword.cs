@@ -68,7 +68,6 @@ namespace Project_OODB_Laundry_GroupH
                 FormLogin.passwordGlobal = textBoxNewPassword.Text;
                 MessageBox.Show("Your New Password has been updated");
                 this.Visible = false;
-
             }
         }
     }

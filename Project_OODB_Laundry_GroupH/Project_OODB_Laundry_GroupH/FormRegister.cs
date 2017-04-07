@@ -26,12 +26,6 @@ namespace Project_OODB_Laundry_GroupH
             textBoxEmail.Text = "";
             textBoxPhoneNumber.Text = "";
             richTextBoxAddress.Text = "";
-           
-        }
-
-        private void FormRegister_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void linkLabelSignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -42,8 +36,6 @@ namespace Project_OODB_Laundry_GroupH
         }
         public Boolean validateEmail(String email)
         {
-            
-
             int flagAt = 0, flagDot = 0;
             foreach (char c in email)
             {
@@ -75,7 +67,6 @@ namespace Project_OODB_Laundry_GroupH
         {
             int flagUsernameAlphabet = 0;
             int flagNumberPhoneNumeric = 0;
-            String flagAddress = "";
             foreach (char c in textBoxUsername.Text)
             {
                 if (!Char.IsLetter(c))

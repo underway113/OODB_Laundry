@@ -25,24 +25,19 @@ namespace Project_OODB_Laundry_GroupH
             textBoxPassword.Text = "";
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-           
-        }
-
         private static string _roleGlobal="";
         private static string _passwordGlobal = "";
         private static string _emailGlobal = "";
         public static string roleGlobal
         {
-            get // this makes you to access value in form2
+            get
             {
                 return _roleGlobal;
             }
         }
         public static string passwordGlobal
         {
-            get // this makes you to access value in form2
+            get
             {
                 return _passwordGlobal;
             }
@@ -53,11 +48,10 @@ namespace Project_OODB_Laundry_GroupH
         }
         public static string emailGlobal
         {
-            get // this makes you to access value in form2
+            get
             {
                 return _emailGlobal;
             }
-            
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -68,7 +62,6 @@ namespace Project_OODB_Laundry_GroupH
                         where x.UserEmail == email && x.UserPassword == pass
                         select x).FirstOrDefault();
             
-
             if (textBoxEmail.Text == "")
             {
                 MessageBox.Show("Email Must Be Filled!");
@@ -91,7 +84,6 @@ namespace Project_OODB_Laundry_GroupH
                     this.Visible = false;
                     form.Visible = true;
                 }
-                
             }
         }
 

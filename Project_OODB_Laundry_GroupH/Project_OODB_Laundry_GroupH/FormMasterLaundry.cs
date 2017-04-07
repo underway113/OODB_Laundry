@@ -19,7 +19,6 @@ namespace Project_OODB_Laundry_GroupH
             init_state_MasterLaundryForm();
             loadData();
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
         }
         public void loadData()
         {
@@ -61,9 +60,6 @@ namespace Project_OODB_Laundry_GroupH
                     return false;
             }
             return true;
-        }
-        private void FormMasterLaundry_Load(object sender, EventArgs e)
-        {
         }
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -107,7 +103,6 @@ namespace Project_OODB_Laundry_GroupH
             buttonCancel.Enabled = true;
 
             flagInsert = 1;
-
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -145,10 +140,8 @@ namespace Project_OODB_Laundry_GroupH
                     newPriceList.ProductPrice = Int32.Parse(textBoxPrice.Text);
 
                     db.PriceList.Add(newPriceList);
-
-                    flagInsert = 0;
-
                     db.SaveChanges();
+                    flagInsert = 0;
                 }
                 else if (flagUpdate == 1)
                 {
@@ -160,8 +153,6 @@ namespace Project_OODB_Laundry_GroupH
                     flagUpdate = 0;
                     db.SaveChanges();
                 }
-                
-               
                 MessageBox.Show("Laundry has been inserted/updated!");
                 loadData();
                 init_state_MasterLaundryForm();
@@ -187,7 +178,6 @@ namespace Project_OODB_Laundry_GroupH
                 buttonCancel.Enabled = true;
 
                 flagUpdate = 1;
-
             }
         }
         private void buttonDelete_Click(object sender, EventArgs e)
