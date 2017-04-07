@@ -30,11 +30,11 @@ namespace Project_OODB_Laundry_GroupH
             textBoxProductID.Enabled = false;
             textBoxQuantityCart.Enabled = false;
             textBoxGrandTotal.Enabled = false;
-
+            textBoxUserID.Text = FormLogin.userIDGlobal;
             
         }
 
-        private void FormOrder_Load(object sender, EventArgs e)
+        private void buttonAddToCart_Click(object sender, EventArgs e)
         {
 
         }

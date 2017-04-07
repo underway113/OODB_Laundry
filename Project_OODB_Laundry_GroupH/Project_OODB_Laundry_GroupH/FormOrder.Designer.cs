@@ -51,9 +51,13 @@
             this.groupBoxCart = new System.Windows.Forms.GroupBox();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonCheckOut = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantityListLaundry)).BeginInit();
             this.groupBoxListLaundry.SuspendLayout();
             this.groupBoxCart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -115,7 +119,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(452, 25);
+            this.label7.Location = new System.Drawing.Point(432, 25);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 24);
             this.label7.TabIndex = 0;
@@ -124,7 +128,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(471, 62);
+            this.label8.Location = new System.Drawing.Point(432, 63);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 24);
             this.label8.TabIndex = 0;
@@ -133,7 +137,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(452, 99);
+            this.label9.Location = new System.Drawing.Point(432, 101);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 24);
             this.label9.TabIndex = 0;
@@ -206,6 +210,7 @@
             // 
             // groupBoxListLaundry
             // 
+            this.groupBoxListLaundry.Controls.Add(this.dataGridView1);
             this.groupBoxListLaundry.Controls.Add(this.buttonAddToCart);
             this.groupBoxListLaundry.Controls.Add(this.textBoxLaundryName);
             this.groupBoxListLaundry.Controls.Add(this.numericUpDownQuantityListLaundry);
@@ -226,15 +231,17 @@
             // buttonAddToCart
             // 
             this.buttonAddToCart.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonAddToCart.Location = new System.Drawing.Point(494, 172);
+            this.buttonAddToCart.Location = new System.Drawing.Point(521, 172);
             this.buttonAddToCart.Name = "buttonAddToCart";
-            this.buttonAddToCart.Size = new System.Drawing.Size(122, 52);
+            this.buttonAddToCart.Size = new System.Drawing.Size(120, 52);
             this.buttonAddToCart.TabIndex = 5;
             this.buttonAddToCart.Text = "Add to Cart";
             this.buttonAddToCart.UseVisualStyleBackColor = false;
+            this.buttonAddToCart.Click += new System.EventHandler(this.buttonAddToCart_Click);
             // 
             // groupBoxCart
             // 
+            this.groupBoxCart.Controls.Add(this.dataGridView2);
             this.groupBoxCart.Controls.Add(this.buttonDelete);
             this.groupBoxCart.Controls.Add(this.buttonCheckOut);
             this.groupBoxCart.Controls.Add(this.textBoxProductID);
@@ -254,9 +261,9 @@
             // buttonDelete
             // 
             this.buttonDelete.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonDelete.Location = new System.Drawing.Point(475, 138);
+            this.buttonDelete.Location = new System.Drawing.Point(446, 138);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(99, 52);
+            this.buttonDelete.Size = new System.Drawing.Size(120, 52);
             this.buttonDelete.TabIndex = 5;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = false;
@@ -264,12 +271,28 @@
             // buttonCheckOut
             // 
             this.buttonCheckOut.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonCheckOut.Location = new System.Drawing.Point(617, 138);
+            this.buttonCheckOut.Location = new System.Drawing.Point(589, 138);
             this.buttonCheckOut.Name = "buttonCheckOut";
             this.buttonCheckOut.Size = new System.Drawing.Size(122, 52);
             this.buttonCheckOut.TabIndex = 5;
             this.buttonCheckOut.Text = "Check Out";
             this.buttonCheckOut.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 25);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(419, 199);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(7, 25);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(419, 165);
+            this.dataGridView2.TabIndex = 6;
             // 
             // FormOrder
             // 
@@ -286,12 +309,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormOrder";
             this.Text = "Do Transaction";
-            this.Load += new System.EventHandler(this.FormOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantityListLaundry)).EndInit();
             this.groupBoxListLaundry.ResumeLayout(false);
             this.groupBoxListLaundry.PerformLayout();
             this.groupBoxCart.ResumeLayout(false);
             this.groupBoxCart.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,5 +346,7 @@
         private System.Windows.Forms.GroupBox groupBoxCart;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonCheckOut;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
