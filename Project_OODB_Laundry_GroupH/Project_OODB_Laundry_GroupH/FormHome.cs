@@ -42,7 +42,6 @@ namespace Project_OODB_Laundry_GroupH
         {
             WindowState = FormWindowState.Maximized;
             this.MaximizeBox = false;
-            //manageProductToolStripMenuItem.Visible = false; buat hide di role user atau admin nanti
         }
 
         FormMasterLaundry formMasterLaundry;

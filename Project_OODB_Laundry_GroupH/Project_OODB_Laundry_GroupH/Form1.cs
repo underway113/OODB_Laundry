@@ -28,6 +28,7 @@ namespace Project_OODB_Laundry_GroupH
         private static string _roleGlobal="";
         private static string _passwordGlobal = "";
         private static string _emailGlobal = "";
+        private static string _userIDGlobal = "";
         public static string roleGlobal
         {
             get
@@ -51,6 +52,13 @@ namespace Project_OODB_Laundry_GroupH
             get
             {
                 return _emailGlobal;
+            }
+        }
+        public static string userIDGlobal
+        {
+            get
+            {
+                return _userIDGlobal;
             }
         }
 
@@ -80,6 +88,7 @@ namespace Project_OODB_Laundry_GroupH
                     _roleGlobal = user.RoleName;
                     _emailGlobal = user.UserEmail;
                     _passwordGlobal = user.UserPassword;
+                    _userIDGlobal = user.UserID;
                     Form form = new FormHome();
                     this.Visible = false;
                     form.Visible = true;
