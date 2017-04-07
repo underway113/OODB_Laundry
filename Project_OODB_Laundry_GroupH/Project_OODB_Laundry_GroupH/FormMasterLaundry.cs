@@ -67,6 +67,8 @@ namespace Project_OODB_Laundry_GroupH
         }
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            flagInsert = 0;
+            flagUpdate = 0;
             init_state_MasterLaundryForm();
             loadData();
         }
@@ -75,7 +77,13 @@ namespace Project_OODB_Laundry_GroupH
         int flagUpdate = 0;
         private void buttonInsert_Click(object sender, EventArgs e)
         {
-            int id = (from x in db.PriceList select x).ToList().Count + 1;
+
+            //int last = (from x in db.PriceList select x).ToList().Count;
+            string lastRow =  (from x in db.PriceList
+                              orderby x.ProductID descending
+                             select x.ProductID).First();
+            int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3))+1;
+           
             textBoxLaundryID.Enabled = false;
             textBoxLaundryName.Enabled = true;
             textBoxPrice.Enabled = true;
@@ -93,7 +101,7 @@ namespace Project_OODB_Laundry_GroupH
             }
             textBoxLaundryID.Text = newId;
             textBoxLaundryName.Text = "";
-
+            textBoxPrice.Text = "";
             buttonInsert.Enabled = false;
             buttonUpdate.Enabled = false;
             buttonDelete.Enabled = false;
@@ -136,7 +144,7 @@ namespace Project_OODB_Laundry_GroupH
                     PriceList newPriceList = new PriceList();
                     newPriceList.ProductID = newId;
                     newPriceList.ProductName = textBoxLaundryName.Text;
-                    newPriceList.ProductPrice = int.Parse(textBoxPrice.Text);
+                    newPriceList.ProductPrice = Int32.Parse(textBoxPrice.Text);
 
                     db.PriceList.Add(newPriceList);
 
