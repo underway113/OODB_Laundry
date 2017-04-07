@@ -141,6 +141,8 @@ namespace Project_OODB_Laundry_GroupH
                     db.PriceList.Add(newPriceList);
 
                     flagInsert = 0;
+
+                    db.SaveChanges();
                 }
                 else if (flagUpdate == 1)
                 {
@@ -150,9 +152,10 @@ namespace Project_OODB_Laundry_GroupH
                     priceList.ProductName = textBoxLaundryName.Text;
                     priceList.ProductPrice = int.Parse(textBoxPrice.Text);
                     flagUpdate = 0;
+                    db.SaveChanges();
                 }
                 
-                db.SaveChanges();
+               
                 MessageBox.Show("Laundry has been inserted/updated!");
                 loadData();
                 init_state_MasterLaundryForm();
@@ -201,6 +204,8 @@ namespace Project_OODB_Laundry_GroupH
                 }
                 else if (dialogResult == DialogResult.No)
                 {
+                    loadData();
+                    init_state_MasterLaundryForm();
                 }
             }
         }
