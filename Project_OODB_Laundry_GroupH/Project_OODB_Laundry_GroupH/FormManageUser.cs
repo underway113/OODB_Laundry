@@ -23,8 +23,6 @@ namespace Project_OODB_Laundry_GroupH
         public void loadData()
         {
             dataGridView1.DataSource = (from x in db.Users select new { x.UserID, x.UserName, x.UserPassword, x.UserEmail, x.UserAddress, x.UserPhoneNumber, x.RoleName }).ToList();
-            dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
-            dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
         }
         public void init_state_ManageUser()
         {
