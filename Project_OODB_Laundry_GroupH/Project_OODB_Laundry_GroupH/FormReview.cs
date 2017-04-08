@@ -28,6 +28,7 @@ namespace Project_OODB_Laundry_GroupH
             richTextBoxNewReview.Text = "";
             textBoxReviewID.Enabled = false;
             textBoxReviewID.Text = "";
+            dataGridView2.DataSource = null;
         }
         string newId = "";
         public void loadData()
@@ -61,27 +62,37 @@ namespace Project_OODB_Laundry_GroupH
                          join r in db.Review on u.UserID equals r.UserID
                          join p in db.PriceList on r.ProductID equals p.ProductID
                          where selected == r.ProductID && u.UserID == FormLogin.userIDGlobal
-                         select new { r.ReviewID, r.Review1 });
+                         select new { r.ReviewID, Review = r.Review1 });
             dataGridView2.DataSource = query.ToList();
             richTextBoxNewReview.Enabled = true;
+        }
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count != 1)
             {
-                MessageBox.Show("AAAA");
+                MessageBox.Show("Please Choose Product First");
+            }
+            else if(richTextBoxNewReview.Text == "")
+            {
+                MessageBox.Show("New Review Must be Filled");
             }
             else
             {
-                MessageBox.Show("BBBB");
+                string selected = dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString();
+                Review newReview = new Review();
+                newReview.ReviewID = newId;
+                newReview.Review1 = richTextBoxNewReview.Text;
+                newReview.ProductID = selected;
+                newReview.UserID = FormLogin.userIDGlobal;
+                db.Review.Add(newReview);
+                db.SaveChanges();
+                init_state_review();
+                loadData();
             }
-            init_state_review();
-            loadData();
-        }
-
-        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            dataGridView1.ClearSelection();
         }
     }
 }

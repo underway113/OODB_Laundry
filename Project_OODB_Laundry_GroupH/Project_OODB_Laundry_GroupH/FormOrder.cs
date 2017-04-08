@@ -129,7 +129,7 @@ namespace Project_OODB_Laundry_GroupH
                 }
                 else
                 {
-                    //still not good
+                    //still not good, need improvement
                     HeaderTransaction newHeaderTrans = new HeaderTransaction();
                     DetailTransaction newDetailTrans = new DetailTransaction();
                     newHeaderTrans.TransactionID = newId;
