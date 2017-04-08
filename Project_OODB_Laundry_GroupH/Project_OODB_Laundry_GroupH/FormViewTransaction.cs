@@ -31,6 +31,7 @@ namespace Project_OODB_Laundry_GroupH
                 dataGridView1.DataSource = (from x in db.HeaderTransaction where x.UserID == FormLogin.userIDGlobal select new { x.TransactionID, x.Status }).ToList();
                
             }
+            dataGridView2.DataSource = null;
         }
         public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -52,6 +53,8 @@ namespace Project_OODB_Laundry_GroupH
         {
             textBoxTotalQuantity.Enabled = false;
             textBoxGrandTotal.Enabled = false;
+            textBoxTotalQuantity.Text = "";
+            textBoxGrandTotal.Text = "";
             if (FormLogin.roleGlobal == "Admin")
             {
                 buttonUpdateStatus.Visible = true;
@@ -61,10 +64,14 @@ namespace Project_OODB_Laundry_GroupH
                 buttonUpdateStatus.Visible = false;
             }
         }
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
 
         private void buttonUpdateStatus_Click(object sender, EventArgs e)
         {
-            if (textBoxTotalQuantity.Text == "")
+            if (dataGridView1.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Please Choose Transaction Header Data First");
             }

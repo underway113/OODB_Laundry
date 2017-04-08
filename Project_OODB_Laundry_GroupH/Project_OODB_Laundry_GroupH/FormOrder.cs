@@ -66,8 +66,14 @@ namespace Project_OODB_Laundry_GroupH
             textBoxQuantityCart.Enabled = false;
             textBoxGrandTotal.Enabled = false;
             textBoxUserID.Text = FormLogin.userIDGlobal;
+            textBoxLaundryID.Text = "";
+            textBoxLaundryName.Text = "";
+            textBoxPrice.Text = "";
             textBoxQuantityCart.Text = "0";
             textBoxGrandTotal.Text = "0";
+            textBoxQuantityCart.Text = "0";
+            textBoxGrandTotal.Text = "0";
+            textBoxProductID.Text = "";
         }
         public void init_state_delete()
         {
@@ -85,10 +91,18 @@ namespace Project_OODB_Laundry_GroupH
                          select new { dt.ProductID, p.ProductName, dt.Quantity, TotalPrice = dt.Price });
             dataGridView2.DataSource = query.ToList();
         }
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+        private void dataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
         private void buttonAddToCart_Click(object sender, EventArgs e)
         {
 
-            if (textBoxLaundryID.Text == "")
+            if (dataGridView1.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Please Choose Laundry First");
             }
@@ -96,9 +110,6 @@ namespace Project_OODB_Laundry_GroupH
             {
                 MessageBox.Show("Please Fill the Quantity More Than 0");
             }
-            //If user have pending transactions in HeaderTransaction table 
-            //(status is “Pending”):
-            
             else 
             {
                 string selected = dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString();
@@ -118,7 +129,7 @@ namespace Project_OODB_Laundry_GroupH
                 }
                 else
                 {
-                    //still error
+                    //still not good
                     HeaderTransaction newHeaderTrans = new HeaderTransaction();
                     DetailTransaction newDetailTrans = new DetailTransaction();
                     newHeaderTrans.TransactionID = newId;
@@ -128,14 +139,9 @@ namespace Project_OODB_Laundry_GroupH
                     newDetailTrans.ProductID = textBoxLaundryID.Text;
                     newDetailTrans.Quantity = Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
                     int a = Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
-                    MessageBox.Show(a.ToString());
-                   
                     int b = Int32.Parse(textBoxPrice.Text);
-                    MessageBox.Show(b.ToString());
                     newDetailTrans.Price = a*b;
-                    MessageBox.Show(newDetailTrans.Price.ToString());
                     db.HeaderTransaction.Add(newHeaderTrans);
-                    
                     db.SaveChanges();
                     db.DetailTransaction.Add(newDetailTrans);
                     db.SaveChanges();
@@ -145,10 +151,10 @@ namespace Project_OODB_Laundry_GroupH
                
             }
         }
-
+        
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (textBoxQuantityCart.Text == "0")
+            if (dataGridView2.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Please Choose the Cart to be Deleted First!");
             }
@@ -172,13 +178,12 @@ namespace Project_OODB_Laundry_GroupH
             var checkStat = (from ht in db.HeaderTransaction
                            join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
                            where ht.UserID == textBoxUserID.Text && ht.Status == "Pending"
-                           select ht).FirstOrDefault();
+                           select ht).FirstOrDefault(); //Masih perlu satu" klik nya, seharusnya semua row check out
             checkStat.Status = "Waiting";
             db.SaveChanges();
             
             loadData();
             init_state_order();
-            init_state_delete();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

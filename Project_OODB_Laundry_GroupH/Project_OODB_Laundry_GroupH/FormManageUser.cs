@@ -68,6 +68,10 @@ namespace Project_OODB_Laundry_GroupH
                 comboBoxRolename.Text = "Member";
             }
         }
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
         public Boolean validateEmail(String email)
         {
 
@@ -196,7 +200,7 @@ namespace Project_OODB_Laundry_GroupH
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (textBoxUserID.Text == "")
+            if (dataGridView1.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Select User First");
             }

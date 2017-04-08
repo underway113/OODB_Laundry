@@ -41,6 +41,10 @@ namespace Project_OODB_Laundry_GroupH
             buttonSave.Enabled = false;
             buttonCancel.Enabled = false;
         }
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
         public static bool IsAllLetters(string s)
         {
             foreach (char c in s)
@@ -159,7 +163,7 @@ namespace Project_OODB_Laundry_GroupH
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            if (textBoxLaundryID.Text == "")
+            if (dataGridView1.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Select Product First");
             }
@@ -180,7 +184,7 @@ namespace Project_OODB_Laundry_GroupH
         }
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if(textBoxLaundryID.Text == "")
+            if(dataGridView1.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Select Product First");
             }
