@@ -89,7 +89,7 @@
             this.comboBoxRolename.Location = new System.Drawing.Point(458, 149);
             this.comboBoxRolename.Name = "comboBoxRolename";
             this.comboBoxRolename.Size = new System.Drawing.Size(162, 32);
-            this.comboBoxRolename.TabIndex = 3;
+            this.comboBoxRolename.TabIndex = 6;
             // 
             // richTextBoxAddress
             // 
@@ -97,7 +97,7 @@
             this.richTextBoxAddress.Location = new System.Drawing.Point(458, 20);
             this.richTextBoxAddress.Name = "richTextBoxAddress";
             this.richTextBoxAddress.Size = new System.Drawing.Size(162, 74);
-            this.richTextBoxAddress.TabIndex = 2;
+            this.richTextBoxAddress.TabIndex = 4;
             this.richTextBoxAddress.Text = "";
             // 
             // textBoxPhoneNumber
@@ -106,7 +106,7 @@
             this.textBoxPhoneNumber.Location = new System.Drawing.Point(458, 107);
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(162, 29);
-            this.textBoxPhoneNumber.TabIndex = 1;
+            this.textBoxPhoneNumber.TabIndex = 5;
             // 
             // textBoxEmail
             // 
@@ -114,7 +114,7 @@
             this.textBoxEmail.Location = new System.Drawing.Point(110, 149);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(183, 29);
-            this.textBoxEmail.TabIndex = 1;
+            this.textBoxEmail.TabIndex = 3;
             // 
             // textBoxPassword
             // 
@@ -122,7 +122,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(110, 105);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(183, 29);
-            this.textBoxPassword.TabIndex = 1;
+            this.textBoxPassword.TabIndex = 2;
             // 
             // textBoxUsername
             // 
@@ -232,7 +232,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(107, 103);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(95, 45);
-            this.buttonCancel.TabIndex = 0;
+            this.buttonCancel.TabIndex = 8;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -244,7 +244,7 @@
             this.buttonSave.Location = new System.Drawing.Point(107, 51);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(95, 45);
-            this.buttonSave.TabIndex = 0;
+            this.buttonSave.TabIndex = 7;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -257,6 +257,7 @@
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(95, 45);
             this.buttonDelete.TabIndex = 0;
+            this.buttonDelete.TabStop = false;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
@@ -269,6 +270,7 @@
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(95, 45);
             this.buttonUpdate.TabIndex = 0;
+            this.buttonUpdate.TabStop = false;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = false;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
@@ -281,6 +283,7 @@
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(95, 45);
             this.buttonInsert.TabIndex = 0;
+            this.buttonInsert.TabStop = false;
             this.buttonInsert.Text = "Insert";
             this.buttonInsert.UseVisualStyleBackColor = false;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);

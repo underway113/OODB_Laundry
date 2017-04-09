@@ -79,7 +79,8 @@
             this.textBoxPrice.Location = new System.Drawing.Point(148, 133);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(150, 29);
-            this.textBoxPrice.TabIndex = 1;
+            this.textBoxPrice.TabIndex = 2;
+            this.textBoxPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPrice_KeyDown);
             // 
             // textBoxLaundryName
             // 
@@ -93,7 +94,8 @@
             this.textBoxLaundryID.Location = new System.Drawing.Point(148, 37);
             this.textBoxLaundryID.Name = "textBoxLaundryID";
             this.textBoxLaundryID.Size = new System.Drawing.Size(150, 29);
-            this.textBoxLaundryID.TabIndex = 1;
+            this.textBoxLaundryID.TabIndex = 0;
+            this.textBoxLaundryID.TabStop = false;
             // 
             // label4
             // 
@@ -144,6 +146,7 @@
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(95, 45);
             this.buttonDelete.TabIndex = 0;
+            this.buttonDelete.TabStop = false;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
@@ -155,6 +158,7 @@
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(95, 45);
             this.buttonUpdate.TabIndex = 0;
+            this.buttonUpdate.TabStop = false;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = false;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
@@ -166,6 +170,7 @@
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(95, 45);
             this.buttonInsert.TabIndex = 0;
+            this.buttonInsert.TabStop = false;
             this.buttonInsert.Text = "Insert";
             this.buttonInsert.UseVisualStyleBackColor = false;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
@@ -176,7 +181,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(107, 105);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(95, 45);
-            this.buttonCancel.TabIndex = 0;
+            this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -187,7 +192,7 @@
             this.buttonSave.Location = new System.Drawing.Point(107, 54);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(95, 45);
-            this.buttonSave.TabIndex = 0;
+            this.buttonSave.TabIndex = 3;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);

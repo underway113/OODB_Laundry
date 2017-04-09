@@ -34,8 +34,6 @@ namespace Project_OODB_Laundry_GroupH
         public void loadData()
         {
             dataGridView1.DataSource = (from x in db.PriceList select new { x.ProductID, x.ProductName, x.ProductPrice }).ToList();
-            
-
             string lastRow = (from r in db.Review
                               orderby r.ReviewID descending
                               select r.ReviewID).FirstOrDefault();
@@ -100,6 +98,14 @@ namespace Project_OODB_Laundry_GroupH
                 db.SaveChanges();
                 init_state_review();
                 loadData();
+            }
+        }
+
+        private void richTextBoxNewReview_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonAdd_Click(this, new EventArgs());
             }
         }
     }

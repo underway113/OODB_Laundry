@@ -17,6 +17,7 @@ namespace Project_OODB_Laundry_GroupH
         {
             InitializeComponent();
             init_state_ChangePassword();
+            this.ActiveControl = textBoxEmail;
         }
 
         public void init_state_ChangePassword()
@@ -68,6 +69,14 @@ namespace Project_OODB_Laundry_GroupH
                 FormLogin.passwordGlobal = textBoxNewPassword.Text;
                 MessageBox.Show("Your New Password has been updated");
                 this.Visible = false;
+            }
+        }
+
+        private void textBoxConfirmPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonChangePassword_Click(this, new EventArgs());
             }
         }
     }

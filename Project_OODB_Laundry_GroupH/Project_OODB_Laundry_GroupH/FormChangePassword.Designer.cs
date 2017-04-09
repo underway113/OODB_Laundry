@@ -104,7 +104,7 @@
             this.textBoxOldPassword.Location = new System.Drawing.Point(180, 110);
             this.textBoxOldPassword.Name = "textBoxOldPassword";
             this.textBoxOldPassword.Size = new System.Drawing.Size(187, 29);
-            this.textBoxOldPassword.TabIndex = 1;
+            this.textBoxOldPassword.TabIndex = 2;
             this.textBoxOldPassword.UseSystemPasswordChar = true;
             // 
             // textBoxNewPassword
@@ -113,7 +113,7 @@
             this.textBoxNewPassword.Location = new System.Drawing.Point(180, 165);
             this.textBoxNewPassword.Name = "textBoxNewPassword";
             this.textBoxNewPassword.Size = new System.Drawing.Size(187, 29);
-            this.textBoxNewPassword.TabIndex = 1;
+            this.textBoxNewPassword.TabIndex = 3;
             this.textBoxNewPassword.UseSystemPasswordChar = true;
             // 
             // textBoxConfirmPassword
@@ -122,8 +122,9 @@
             this.textBoxConfirmPassword.Location = new System.Drawing.Point(180, 220);
             this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             this.textBoxConfirmPassword.Size = new System.Drawing.Size(187, 29);
-            this.textBoxConfirmPassword.TabIndex = 1;
+            this.textBoxConfirmPassword.TabIndex = 4;
             this.textBoxConfirmPassword.UseSystemPasswordChar = true;
+            this.textBoxConfirmPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxConfirmPassword_KeyDown);
             // 
             // buttonChangePassword
             // 
@@ -132,7 +133,7 @@
             this.buttonChangePassword.Location = new System.Drawing.Point(102, 281);
             this.buttonChangePassword.Name = "buttonChangePassword";
             this.buttonChangePassword.Size = new System.Drawing.Size(181, 51);
-            this.buttonChangePassword.TabIndex = 2;
+            this.buttonChangePassword.TabIndex = 5;
             this.buttonChangePassword.Text = "Change Password";
             this.buttonChangePassword.UseVisualStyleBackColor = false;
             this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);

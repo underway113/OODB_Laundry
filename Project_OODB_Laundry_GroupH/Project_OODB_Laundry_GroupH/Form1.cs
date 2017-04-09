@@ -17,6 +17,7 @@ namespace Project_OODB_Laundry_GroupH
         {
             InitializeComponent();
             init_state_login();
+            this.ActiveControl = textBoxEmail;
         }
 
         public void init_state_login()
@@ -101,6 +102,14 @@ namespace Project_OODB_Laundry_GroupH
             Form form = new FormRegister();
             this.Visible = false;
             form.Visible = true;
+        }
+
+        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonLogin_Click(this, new EventArgs());
+            }
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Project_OODB_Laundry_GroupH
 
             string lastRow = (from ht in db.HeaderTransaction
                               orderby ht.TransactionID descending
-                              select ht.TransactionID).First();
+                              select ht.TransactionID).FirstOrDefault();
             if(lastRow == null)
             {
                 newId = "HT001";
@@ -205,12 +205,12 @@ namespace Project_OODB_Laundry_GroupH
                              join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
                              where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
                            select ht).ToList(); 
-
-            int cout = checkStat.Count();
-              //NOT  DONE YET in THIS SECTOR
-
+            checkStat.Select(c => 
+                                {
+                                    c.Status = "Waiting"; return c;
+                                }).ToList();
             db.SaveChanges();
-
+            MessageBox.Show("All of your Items have been Checked Out");
             loadData();
             init_state_order();
         }

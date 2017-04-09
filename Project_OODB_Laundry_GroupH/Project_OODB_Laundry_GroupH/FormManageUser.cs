@@ -126,9 +126,7 @@ namespace Project_OODB_Laundry_GroupH
         {
             string lastRow = (from x in db.Users
                               orderby x.UserID descending
-                              select x.UserID).First();
-
-            
+                              select x.UserID).FirstOrDefault();
             if(lastRow == null)
             {
                 newId = "US001";

@@ -12,6 +12,7 @@ namespace Project_OODB_Laundry_GroupH
 {
     public partial class FormHome : Form
     {
+        DatabaseLaundryEntities1 db = new DatabaseLaundryEntities1();
         public FormHome()
         {
             InitializeComponent();
@@ -36,12 +37,8 @@ namespace Project_OODB_Laundry_GroupH
                 changePasswordToolStripMenuItem.Visible = true;
                 logOutToolStripMenuItem.Visible = true;
             }
-        }
-
-        private void FormHome_Load(object sender, EventArgs e)
-        {
             WindowState = FormWindowState.Maximized;
-            this.MaximizeBox = false;
+            this.MaximizeBox = true;
         }
 
         FormMasterLaundry formMasterLaundry;
@@ -50,7 +47,6 @@ namespace Project_OODB_Laundry_GroupH
         FormChangePassword formChangePassword;
         FormOrder formOrder;
         FormReview formReview;
-
 
         private void manageProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -95,16 +91,25 @@ namespace Project_OODB_Laundry_GroupH
 
         private void transactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (formViewTransaction == null)
+            var checkNullDatabase = (from ht in db.HeaderTransaction
+                                     select ht).FirstOrDefault();
+            if(checkNullDatabase != null)
             {
-                formViewTransaction = new FormViewTransaction();
-                formViewTransaction.MdiParent = this;
-                formViewTransaction.FormClosed += FormViewTransaction_FormClosed;
-                formViewTransaction.Show();
+                if (formViewTransaction == null)
+                {
+                    formViewTransaction = new FormViewTransaction();
+                    formViewTransaction.MdiParent = this;
+                    formViewTransaction.FormClosed += FormViewTransaction_FormClosed;
+                    formViewTransaction.Show();
+                }
+                else
+                {
+                    formViewTransaction.Activate();
+                }
             }
             else
             {
-                formViewTransaction.Activate();
+                MessageBox.Show("No Transaction !", "Warning Message!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -137,16 +142,25 @@ namespace Project_OODB_Laundry_GroupH
 
         private void orderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (formOrder == null)
+            var checkNullDatabase = (from p in db.PriceList
+                                      select p).FirstOrDefault();
+            if (checkNullDatabase != null)
             {
-                formOrder = new FormOrder();
-                formOrder.MdiParent = this;
-                formOrder.FormClosed += FormOrder_FormClosed;
-                formOrder.Show();
+                if (formOrder == null)
+                {
+                    formOrder = new FormOrder();
+                    formOrder.MdiParent = this;
+                    formOrder.FormClosed += FormOrder_FormClosed;
+                    formOrder.Show();
+                }
+                else
+                {
+                    formOrder.Activate();
+                }
             }
             else
             {
-                formOrder.Activate();
+                MessageBox.Show("Admin Must Add Laundry Product First !", "Warning Message!" , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -158,16 +172,24 @@ namespace Project_OODB_Laundry_GroupH
 
         private void giveReviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (formReview == null)
-            {
-                formReview = new FormReview();
-                formReview.MdiParent = this;
-                formReview.FormClosed += FormReview_FormClosed;
-                formReview.Show();
+            var checkNullDatabase = (from ht in db.HeaderTransaction
+                                     select ht).FirstOrDefault();
+            if (checkNullDatabase != null) {
+                if (formReview == null)
+                {
+                    formReview = new FormReview();
+                    formReview.MdiParent = this;
+                    formReview.FormClosed += FormReview_FormClosed;
+                    formReview.Show();
+                }
+                else
+                {
+                    formReview.Activate();
+                }
             }
             else
             {
-                formReview.Activate();
+                MessageBox.Show("You must do the Laundry First!", "Warning Message!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

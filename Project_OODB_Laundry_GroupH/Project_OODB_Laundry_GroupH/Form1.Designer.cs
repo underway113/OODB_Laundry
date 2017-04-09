@@ -78,7 +78,7 @@
             this.linkLabelSignup.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkLabelSignup.Name = "linkLabelSignup";
             this.linkLabelSignup.Size = new System.Drawing.Size(345, 24);
-            this.linkLabelSignup.TabIndex = 1;
+            this.linkLabelSignup.TabIndex = 4;
             this.linkLabelSignup.TabStop = true;
             this.linkLabelSignup.Text = "Doesn’t Have an Account? Signup Here";
             this.linkLabelSignup.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSignup_LinkClicked);
@@ -90,7 +90,7 @@
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(219, 29);
-            this.textBoxEmail.TabIndex = 2;
+            this.textBoxEmail.TabIndex = 1;
             // 
             // textBoxPassword
             // 
@@ -101,6 +101,7 @@
             this.textBoxPassword.Size = new System.Drawing.Size(219, 29);
             this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
             // buttonLogin
             // 

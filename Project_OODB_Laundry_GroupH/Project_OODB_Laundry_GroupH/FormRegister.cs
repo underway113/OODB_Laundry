@@ -166,5 +166,13 @@ namespace Project_OODB_Laundry_GroupH
                 form.Visible = true;
             }
         }
+
+        private void richTextBoxAddress_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonRegister_Click(this, new EventArgs());
+            }
+        }
     }
 }

@@ -77,7 +77,7 @@ namespace Project_OODB_Laundry_GroupH
         {
             string lastRow =  (from x in db.PriceList
                               orderby x.ProductID descending
-                             select x.ProductID).First();
+                             select x.ProductID).FirstOrDefault();
             if(lastRow == null)
             {
                 newId = "PD001";
@@ -211,6 +211,14 @@ namespace Project_OODB_Laundry_GroupH
                 }
                 loadData();
                 init_state_MasterLaundryForm();
+            }
+        }
+
+        private void textBoxPrice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonSave_Click(this, new EventArgs());
             }
         }
     }

@@ -78,7 +78,8 @@
             this.textBoxTotalQuantity.Location = new System.Drawing.Point(152, 448);
             this.textBoxTotalQuantity.Name = "textBoxTotalQuantity";
             this.textBoxTotalQuantity.Size = new System.Drawing.Size(135, 29);
-            this.textBoxTotalQuantity.TabIndex = 1;
+            this.textBoxTotalQuantity.TabIndex = 0;
+            this.textBoxTotalQuantity.TabStop = false;
             // 
             // textBoxGrandTotal
             // 
@@ -86,7 +87,8 @@
             this.textBoxGrandTotal.Location = new System.Drawing.Point(152, 483);
             this.textBoxGrandTotal.Name = "textBoxGrandTotal";
             this.textBoxGrandTotal.Size = new System.Drawing.Size(135, 29);
-            this.textBoxGrandTotal.TabIndex = 1;
+            this.textBoxGrandTotal.TabIndex = 0;
+            this.textBoxGrandTotal.TabStop = false;
             // 
             // buttonUpdateStatus
             // 
@@ -95,7 +97,7 @@
             this.buttonUpdateStatus.Location = new System.Drawing.Point(399, 453);
             this.buttonUpdateStatus.Name = "buttonUpdateStatus";
             this.buttonUpdateStatus.Size = new System.Drawing.Size(162, 57);
-            this.buttonUpdateStatus.TabIndex = 2;
+            this.buttonUpdateStatus.TabIndex = 1;
             this.buttonUpdateStatus.Text = "Update Status";
             this.buttonUpdateStatus.UseVisualStyleBackColor = false;
             this.buttonUpdateStatus.Click += new System.EventHandler(this.buttonUpdateStatus_Click);
@@ -122,12 +124,15 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 88);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(560, 151);
-            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
@@ -138,7 +143,9 @@
             this.dataGridView2.Location = new System.Drawing.Point(16, 269);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(560, 154);
-            this.dataGridView2.TabIndex = 5;
+            this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.TabStop = false;
+            this.dataGridView2.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView2_DataBindingComplete);
             // 
             // FormViewTransaction
             // 

@@ -35,17 +35,26 @@ namespace Project_OODB_Laundry_GroupH
         }
         public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string selected = dataGridView1.SelectedRows[0].Cells["TransactionID"].Value.ToString();
-            var query = (from u in db.Users
-                         join ht in db.HeaderTransaction on u.UserID equals ht.UserID
-                         join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
-                         join p in db.PriceList on dt.ProductID equals p.ProductID
-                         where selected == dt.TransactionID
-                         select new { p.ProductName, dt.Quantity, dt.Price });
-            dataGridView2.DataSource = query.ToList();
-
-            textBoxTotalQuantity.Text = dataGridView2.SelectedRows[0].Cells["Quantity"].Value.ToString();
-            textBoxGrandTotal.Text = dataGridView2.SelectedRows[0].Cells["Price"].Value.ToString();
+            if(dataGridView1.DataSource != null)
+            {
+                string selected = dataGridView1.SelectedRows[0].Cells["TransactionID"].Value.ToString();
+                var query = (from u in db.Users
+                             join ht in db.HeaderTransaction on u.UserID equals ht.UserID
+                             join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
+                             join p in db.PriceList on dt.ProductID equals p.ProductID
+                             where selected == dt.TransactionID
+                             select new { p.ProductName, dt.Quantity, dt.Price }).ToList();
+                dataGridView2.DataSource = query;
+                int quantityTotal = 0;
+                int grandTotal = 0;
+                for (int i = 0; i < query.ToList().Count(); i++)
+                {
+                    quantityTotal += query[i].Quantity.Value;
+                    grandTotal += query[i].Price.Value;
+                }
+                textBoxTotalQuantity.Text = quantityTotal.ToString();
+                textBoxGrandTotal.Text = grandTotal.ToString();
+            }
         }
 
 
@@ -53,6 +62,7 @@ namespace Project_OODB_Laundry_GroupH
         {
             textBoxTotalQuantity.Enabled = false;
             textBoxGrandTotal.Enabled = false;
+            dataGridView2.Enabled = false;
             textBoxTotalQuantity.Text = "";
             textBoxGrandTotal.Text = "";
             if (FormLogin.roleGlobal == "Admin")
@@ -68,7 +78,10 @@ namespace Project_OODB_Laundry_GroupH
         {
             dataGridView1.ClearSelection();
         }
-
+        private void dataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView2.ClearSelection();
+        }
         private void buttonUpdateStatus_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count != 1)
@@ -94,5 +107,7 @@ namespace Project_OODB_Laundry_GroupH
                 init_state_ViewTransaction();
             }
         }
+
+        
     }
 }

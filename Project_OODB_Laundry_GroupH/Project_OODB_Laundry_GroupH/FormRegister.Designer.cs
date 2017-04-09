@@ -122,8 +122,7 @@
             this.linkLabelSignIn.Location = new System.Drawing.Point(47, 315);
             this.linkLabelSignIn.Name = "linkLabelSignIn";
             this.linkLabelSignIn.Size = new System.Drawing.Size(344, 24);
-            this.linkLabelSignIn.TabIndex = 1;
-            this.linkLabelSignIn.TabStop = true;
+            this.linkLabelSignIn.TabIndex = 8;
             this.linkLabelSignIn.Text = "Already Have an Account? Sign in Here";
             this.linkLabelSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSignIn_LinkClicked);
             // 
@@ -134,7 +133,7 @@
             this.buttonRegister.Location = new System.Drawing.Point(151, 351);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(138, 61);
-            this.buttonRegister.TabIndex = 2;
+            this.buttonRegister.TabIndex = 7;
             this.buttonRegister.Text = "Register";
             this.buttonRegister.UseVisualStyleBackColor = false;
             this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
@@ -145,7 +144,7 @@
             this.textBoxUsername.Location = new System.Drawing.Point(189, 65);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(222, 29);
-            this.textBoxUsername.TabIndex = 3;
+            this.textBoxUsername.TabIndex = 1;
             // 
             // textBoxPassword
             // 
@@ -153,7 +152,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(189, 101);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(222, 29);
-            this.textBoxPassword.TabIndex = 3;
+            this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxConfirmPassword
@@ -171,7 +170,7 @@
             this.textBoxEmail.Location = new System.Drawing.Point(189, 174);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(222, 29);
-            this.textBoxEmail.TabIndex = 3;
+            this.textBoxEmail.TabIndex = 4;
             // 
             // textBoxPhoneNumber
             // 
@@ -179,7 +178,7 @@
             this.textBoxPhoneNumber.Location = new System.Drawing.Point(189, 209);
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(222, 29);
-            this.textBoxPhoneNumber.TabIndex = 3;
+            this.textBoxPhoneNumber.TabIndex = 5;
             // 
             // richTextBoxAddress
             // 
@@ -187,8 +186,9 @@
             this.richTextBoxAddress.Location = new System.Drawing.Point(189, 244);
             this.richTextBoxAddress.Name = "richTextBoxAddress";
             this.richTextBoxAddress.Size = new System.Drawing.Size(222, 68);
-            this.richTextBoxAddress.TabIndex = 4;
+            this.richTextBoxAddress.TabIndex = 6;
             this.richTextBoxAddress.Text = "";
+            this.richTextBoxAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxAddress_KeyDown);
             // 
             // FormRegister
             // 

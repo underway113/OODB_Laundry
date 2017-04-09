@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -153,7 +149,8 @@
             this.textBoxTransactionID.Location = new System.Drawing.Point(412, 12);
             this.textBoxTransactionID.Name = "textBoxTransactionID";
             this.textBoxTransactionID.Size = new System.Drawing.Size(132, 29);
-            this.textBoxTransactionID.TabIndex = 1;
+            this.textBoxTransactionID.TabIndex = 0;
+            this.textBoxTransactionID.TabStop = false;
             // 
             // textBoxUserID
             // 
@@ -161,56 +158,63 @@
             this.textBoxUserID.Location = new System.Drawing.Point(412, 52);
             this.textBoxUserID.Name = "textBoxUserID";
             this.textBoxUserID.Size = new System.Drawing.Size(132, 29);
-            this.textBoxUserID.TabIndex = 1;
+            this.textBoxUserID.TabIndex = 0;
+            this.textBoxUserID.TabStop = false;
             // 
             // textBoxLaundryID
             // 
             this.textBoxLaundryID.Location = new System.Drawing.Point(589, 22);
             this.textBoxLaundryID.Name = "textBoxLaundryID";
             this.textBoxLaundryID.Size = new System.Drawing.Size(122, 29);
-            this.textBoxLaundryID.TabIndex = 1;
+            this.textBoxLaundryID.TabIndex = 0;
+            this.textBoxLaundryID.TabStop = false;
             // 
             // textBoxLaundryName
             // 
             this.textBoxLaundryName.Location = new System.Drawing.Point(589, 59);
             this.textBoxLaundryName.Name = "textBoxLaundryName";
             this.textBoxLaundryName.Size = new System.Drawing.Size(122, 29);
-            this.textBoxLaundryName.TabIndex = 1;
+            this.textBoxLaundryName.TabIndex = 0;
+            this.textBoxLaundryName.TabStop = false;
             // 
             // textBoxPrice
             // 
             this.textBoxPrice.Location = new System.Drawing.Point(589, 96);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(122, 29);
-            this.textBoxPrice.TabIndex = 1;
+            this.textBoxPrice.TabIndex = 0;
+            this.textBoxPrice.TabStop = false;
             // 
             // textBoxProductID
             // 
             this.textBoxProductID.Location = new System.Drawing.Point(589, 22);
             this.textBoxProductID.Name = "textBoxProductID";
             this.textBoxProductID.Size = new System.Drawing.Size(122, 29);
-            this.textBoxProductID.TabIndex = 1;
+            this.textBoxProductID.TabIndex = 0;
+            this.textBoxProductID.TabStop = false;
             // 
             // textBoxQuantityCart
             // 
             this.textBoxQuantityCart.Location = new System.Drawing.Point(589, 59);
             this.textBoxQuantityCart.Name = "textBoxQuantityCart";
             this.textBoxQuantityCart.Size = new System.Drawing.Size(122, 29);
-            this.textBoxQuantityCart.TabIndex = 1;
+            this.textBoxQuantityCart.TabIndex = 0;
+            this.textBoxQuantityCart.TabStop = false;
             // 
             // textBoxGrandTotal
             // 
             this.textBoxGrandTotal.Location = new System.Drawing.Point(589, 96);
             this.textBoxGrandTotal.Name = "textBoxGrandTotal";
             this.textBoxGrandTotal.Size = new System.Drawing.Size(122, 29);
-            this.textBoxGrandTotal.TabIndex = 1;
+            this.textBoxGrandTotal.TabIndex = 0;
+            this.textBoxGrandTotal.TabStop = false;
             // 
             // numericUpDownQuantityListLaundry
             // 
             this.numericUpDownQuantityListLaundry.Location = new System.Drawing.Point(589, 134);
             this.numericUpDownQuantityListLaundry.Name = "numericUpDownQuantityListLaundry";
             this.numericUpDownQuantityListLaundry.Size = new System.Drawing.Size(120, 29);
-            this.numericUpDownQuantityListLaundry.TabIndex = 2;
+            this.numericUpDownQuantityListLaundry.TabIndex = 1;
             // 
             // groupBoxListLaundry
             // 
@@ -235,25 +239,9 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(7, 25);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.Size = new System.Drawing.Size(419, 199);
             this.dataGridView1.TabIndex = 6;
@@ -266,7 +254,7 @@
             this.buttonAddToCart.Location = new System.Drawing.Point(521, 172);
             this.buttonAddToCart.Name = "buttonAddToCart";
             this.buttonAddToCart.Size = new System.Drawing.Size(120, 52);
-            this.buttonAddToCart.TabIndex = 5;
+            this.buttonAddToCart.TabIndex = 2;
             this.buttonAddToCart.Text = "Add to Cart";
             this.buttonAddToCart.UseVisualStyleBackColor = false;
             this.buttonAddToCart.Click += new System.EventHandler(this.buttonAddToCart_Click);
@@ -293,25 +281,9 @@
             // dataGridView2
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(7, 25);
             this.dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.Size = new System.Drawing.Size(419, 165);
             this.dataGridView2.TabIndex = 6;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
@@ -323,7 +295,7 @@
             this.buttonDelete.Location = new System.Drawing.Point(446, 138);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(120, 52);
-            this.buttonDelete.TabIndex = 5;
+            this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
@@ -334,7 +306,7 @@
             this.buttonCheckOut.Location = new System.Drawing.Point(589, 138);
             this.buttonCheckOut.Name = "buttonCheckOut";
             this.buttonCheckOut.Size = new System.Drawing.Size(122, 52);
-            this.buttonCheckOut.TabIndex = 5;
+            this.buttonCheckOut.TabIndex = 4;
             this.buttonCheckOut.Text = "Check Out";
             this.buttonCheckOut.UseVisualStyleBackColor = false;
             this.buttonCheckOut.Click += new System.EventHandler(this.buttonCheckOut_Click);
