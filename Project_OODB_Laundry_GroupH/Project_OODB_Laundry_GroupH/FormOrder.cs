@@ -82,6 +82,7 @@ namespace Project_OODB_Laundry_GroupH
             textBoxQuantityCart.Text = "0";
             textBoxGrandTotal.Text = "0";
             textBoxProductID.Text = "";
+            numericUpDownQuantityListLaundry.Value = 0;
         }
         public void init_state_delete()
         {
@@ -95,7 +96,7 @@ namespace Project_OODB_Laundry_GroupH
             var query = (from ht in db.HeaderTransaction
                          join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
                          join p in db.PriceList on dt.ProductID equals p.ProductID
-                         where ht.UserID == textBoxUserID.Text && ht.Status == "Pending"
+                         where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
                          select new { dt.ProductID, p.ProductName, dt.Quantity, TotalPrice = dt.Price });
             dataGridView2.DataSource = query.ToList();
         }
@@ -105,7 +106,7 @@ namespace Project_OODB_Laundry_GroupH
         }
         private void dataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            dataGridView1.ClearSelection();
+            dataGridView2.ClearSelection();
         }
         private void buttonAddToCart_Click(object sender, EventArgs e)
         {
@@ -123,13 +124,12 @@ namespace Project_OODB_Laundry_GroupH
                 string selected = dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString();
                 var checkPending = (from ht in db.HeaderTransaction
                                     join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
-                                          where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && selected == dt.ProductID
+                                          where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && selected == dt.ProductID && ht.TransactionID == textBoxTransactionID.Text
                                           select dt ).FirstOrDefault();
            
                 if (checkPending != null)
                 {
                     checkPending.Quantity += Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
-                    
                     checkPending.Price = checkPending.Quantity*(Int32.Parse(textBoxPrice.Text));
                     db.SaveChanges();
                     init_state_order();
@@ -137,26 +137,44 @@ namespace Project_OODB_Laundry_GroupH
                 }
                 else
                 {
-                    //still not good, need improvement
-                    HeaderTransaction newHeaderTrans = new HeaderTransaction();
-                    DetailTransaction newDetailTrans = new DetailTransaction();
-                    newHeaderTrans.TransactionID = newId;
-                    newHeaderTrans.UserID = textBoxUserID.Text;
-                    newHeaderTrans.Status = "Pending";
-                    newDetailTrans.TransactionID = newId;
-                    newDetailTrans.ProductID = textBoxLaundryID.Text;
-                    newDetailTrans.Quantity = Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
-                    int a = Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
-                    int b = Int32.Parse(textBoxPrice.Text);
-                    newDetailTrans.Price = a*b;
-                    db.HeaderTransaction.Add(newHeaderTrans);
-                    db.SaveChanges();
-                    db.DetailTransaction.Add(newDetailTrans);
-                    db.SaveChanges();
+                    string lastRow = (from ht in db.HeaderTransaction
+                                      orderby ht.TransactionID descending
+                                      select ht.TransactionID).FirstOrDefault();
+                    if (textBoxTransactionID.Text != lastRow)
+                    {
+                        HeaderTransaction newHeaderTrans = new HeaderTransaction();
+                        newHeaderTrans.TransactionID = newId;
+                        newHeaderTrans.UserID = textBoxUserID.Text;
+                        newHeaderTrans.Status = "Pending";
+                        db.HeaderTransaction.Add(newHeaderTrans);
+                        db.SaveChanges();
+
+                        DetailTransaction newDetailTrans = new DetailTransaction();
+                        newDetailTrans.TransactionID = newId;
+                        newDetailTrans.ProductID = textBoxLaundryID.Text;
+                        newDetailTrans.Quantity = Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
+                        int a = Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
+                        int b = Int32.Parse(textBoxPrice.Text);
+                        newDetailTrans.Price = a * b;
+                        db.DetailTransaction.Add(newDetailTrans);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        DetailTransaction newDetailTrans = new DetailTransaction();
+                        newDetailTrans.TransactionID = newId;
+                        newDetailTrans.ProductID = textBoxLaundryID.Text;
+                        newDetailTrans.Quantity = Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
+                        int a = Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
+                        int b = Int32.Parse(textBoxPrice.Text);
+                        newDetailTrans.Price = a * b;
+                        db.DetailTransaction.Add(newDetailTrans);
+                        db.SaveChanges();
+                    }
+                    
                     init_state_order();
                     refresh();
                 }
-               
             }
         }
         
@@ -169,12 +187,12 @@ namespace Project_OODB_Laundry_GroupH
             else
             {
                 string selected = dataGridView2.SelectedRows[0].Cells["ProductID"].Value.ToString();
-                var checkht = (from ht in db.HeaderTransaction
+                var checkdt = (from ht in db.HeaderTransaction
                                join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
                                where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && selected == dt.ProductID
-                               select ht).FirstOrDefault();
+                               select dt).FirstOrDefault();
                 MessageBox.Show("Deleted from Cart");
-                db.HeaderTransaction.Remove(checkht);
+                db.DetailTransaction.Remove(checkdt);
                 db.SaveChanges();
                 init_state_delete();
                 refresh();
@@ -184,12 +202,15 @@ namespace Project_OODB_Laundry_GroupH
         private void buttonCheckOut_Click(object sender, EventArgs e)
         {
             var checkStat = (from ht in db.HeaderTransaction
-                           join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
-                           where ht.UserID == textBoxUserID.Text && ht.Status == "Pending"
-                           select ht).FirstOrDefault(); //Masih perlu satu" klik nya, seharusnya semua row check out
-            checkStat.Status = "Waiting";
+                             join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
+                             where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
+                           select ht).ToList(); 
+
+            int cout = checkStat.Count();
+              //NOT  DONE YET in THIS SECTOR
+
             db.SaveChanges();
-            
+
             loadData();
             init_state_order();
         }
