@@ -127,22 +127,29 @@ namespace Project_OODB_Laundry_GroupH
             string lastRow = (from x in db.Users
                               orderby x.UserID descending
                               select x.UserID).First();
-            int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3)) + 1;
+
             
-            if (id < 10)
+            if(lastRow == null)
             {
-                newId = "US00" + id;
-            }
-            else if (id < 100)
-            {
-                newId = "US0" + id;
+                newId = "US001";
             }
             else
             {
-                newId = "US" + id;
+                int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3)) + 1;
+                if (id < 10)
+                {
+                    newId = "US00" + id;
+                }
+                else if (id < 100)
+                {
+                    newId = "US0" + id;
+                }
+                else
+                {
+                    newId = "US" + id;
+                }
             }
-
-
+           
             textBoxUserID.Enabled = false;
             textBoxUsername.Enabled = true;
             textBoxPassword.Enabled = true;

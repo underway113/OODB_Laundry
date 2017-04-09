@@ -78,23 +78,31 @@ namespace Project_OODB_Laundry_GroupH
             string lastRow =  (from x in db.PriceList
                               orderby x.ProductID descending
                              select x.ProductID).First();
-            int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3))+1;
-           
-            textBoxLaundryID.Enabled = false;
-            textBoxLaundryName.Enabled = true;
-            textBoxPrice.Enabled = true;
-            if (id < 10)
+            if(lastRow == null)
             {
-                newId = "PD00" + id;
-            }
-            else if (id < 100)
-            {
-                newId = "PD0" + id;
+                newId = "PD001";
             }
             else
             {
-                newId = "PD" + id;
+                int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3)) + 1;
+                if (id < 10)
+                {
+                    newId = "PD00" + id;
+                }
+                else if (id < 100)
+                {
+                    newId = "PD0" + id;
+                }
+                else
+                {
+                    newId = "PD" + id;
+                }
             }
+           
+
+            textBoxLaundryID.Enabled = false;
+            textBoxLaundryName.Enabled = true;
+            textBoxPrice.Enabled = true;
             textBoxLaundryID.Text = newId;
             textBoxLaundryName.Text = "";
             textBoxPrice.Text = "";

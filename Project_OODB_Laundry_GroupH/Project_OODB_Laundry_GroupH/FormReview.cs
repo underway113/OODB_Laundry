@@ -38,21 +38,29 @@ namespace Project_OODB_Laundry_GroupH
 
             string lastRow = (from r in db.Review
                               orderby r.ReviewID descending
-                              select r.ReviewID).First();
-            int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3)) + 1;
-
-            if (id < 10)
+                              select r.ReviewID).FirstOrDefault();
+            if(lastRow == null)
             {
-                newId = "RV00" + id;
-            }
-            else if (id < 100)
-            {
-                newId = "RV0" + id;
+                newId = "RV001";
             }
             else
             {
-                newId = "RV" + id;
+                int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3)) + 1;
+
+                if (id < 10)
+                {
+                    newId = "RV00" + id;
+                }
+                else if (id < 100)
+                {
+                    newId = "RV0" + id;
+                }
+                else
+                {
+                    newId = "RV" + id;
+                }
             }
+           
             textBoxReviewID.Text = newId;
         }
         public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

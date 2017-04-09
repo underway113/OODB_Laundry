@@ -125,19 +125,29 @@ namespace Project_OODB_Laundry_GroupH
             }
             else
             {
-                int id = (from x in db.Users select x).ToList().Count + 1;
                 String newId = "";
-                if (id < 10)
+                string lastRow = (from x in db.Users
+                                  orderby x.UserID descending
+                                  select x.UserID).FirstOrDefault();
+                if (lastRow == null)
                 {
-                    newId = "US00" + id;
-                }
-                else if (id < 100)
-                {
-                    newId = "US0" + id;
+                    newId = "US001";
                 }
                 else
                 {
-                    newId = "US" + id;
+                    int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3)) + 1;
+                    if (id < 10)
+                    {
+                        newId = "US00" + id;
+                    }
+                    else if (id < 100)
+                    {
+                        newId = "US0" + id;
+                    }
+                    else
+                    {
+                        newId = "US" + id;
+                    }
                 }
 
                 Users newUser = new Users();

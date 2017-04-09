@@ -36,20 +36,28 @@ namespace Project_OODB_Laundry_GroupH
             string lastRow = (from ht in db.HeaderTransaction
                               orderby ht.TransactionID descending
                               select ht.TransactionID).First();
-            int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3)) + 1;
-
-            if (id < 10)
+            if(lastRow == null)
             {
-                newId = "HT00" + id;
-            }
-            else if (id < 100)
-            {
-                newId = "HT0" + id;
+                newId = "HT001";
             }
             else
             {
-                newId = "HT" + id;
+                int id = Int32.Parse(lastRow.Substring(lastRow.Length - 3)) + 1;
+
+                if (id < 10)
+                {
+                    newId = "HT00" + id;
+                }
+                else if (id < 100)
+                {
+                    newId = "HT0" + id;
+                }
+                else
+                {
+                    newId = "HT" + id;
+                }
             }
+           
             textBoxTransactionID.Text = newId;
             
         }
