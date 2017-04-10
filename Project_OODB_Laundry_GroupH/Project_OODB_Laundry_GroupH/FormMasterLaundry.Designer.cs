@@ -226,6 +226,7 @@
             this.Controls.Add(this.groupBoxDetail);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormMasterLaundry";
             this.Text = "Laundry";
             this.groupBoxDetail.ResumeLayout(false);

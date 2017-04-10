@@ -307,6 +307,7 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
+            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // FormManageUser
             // 
@@ -318,6 +319,7 @@
             this.Controls.Add(this.groupBoxController);
             this.Controls.Add(this.groupBoxDetail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormManageUser";
             this.Text = "User";
             this.groupBoxDetail.ResumeLayout(false);

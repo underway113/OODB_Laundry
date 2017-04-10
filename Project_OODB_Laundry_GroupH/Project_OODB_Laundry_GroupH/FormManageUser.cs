@@ -355,5 +355,13 @@ namespace Project_OODB_Laundry_GroupH
                 buttonSave_Click(this, new EventArgs());
             }
         }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonUpdate_Click(this, new EventArgs());
+            }
+        }
     }
 }

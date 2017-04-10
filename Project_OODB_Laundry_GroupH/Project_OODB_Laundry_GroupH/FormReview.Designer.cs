@@ -168,6 +168,7 @@
             this.Controls.Add(this.groupBoxProduct);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormReview";
             this.Text = "Review ID";
             this.groupBoxProduct.ResumeLayout(false);

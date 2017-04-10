@@ -38,7 +38,6 @@ namespace Project_OODB_Laundry_GroupH
                 logOutToolStripMenuItem.Visible = true;
             }
             WindowState = FormWindowState.Maximized;
-            this.MaximizeBox = true;
             this.Text = "Home | Welcome, " + FormLogin.userNamelobal;
         }
 
