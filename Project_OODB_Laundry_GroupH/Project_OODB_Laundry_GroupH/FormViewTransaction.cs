@@ -29,35 +29,33 @@ namespace Project_OODB_Laundry_GroupH
             else if (FormLogin.roleGlobal == "Member")
             {
                 dataGridView1.DataSource = (from x in db.HeaderTransaction where x.UserID == FormLogin.userIDGlobal select new { x.TransactionID, x.Status }).ToList();
-               
             }
             dataGridView2.DataSource = null;
         }
         public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridView1.DataSource != null)
+            if (e.RowIndex != -1)
             {
-                string selected = dataGridView1.SelectedRows[0].Cells["TransactionID"].Value.ToString();
-                var query = (from u in db.Users
-                             join ht in db.HeaderTransaction on u.UserID equals ht.UserID
-                             join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
-                             join p in db.PriceList on dt.ProductID equals p.ProductID
-                             where selected == dt.TransactionID
-                             select new { p.ProductName, dt.Quantity, dt.Price }).ToList();
-                dataGridView2.DataSource = query;
-                int quantityTotal = 0;
-                int grandTotal = 0;
-                for (int i = 0; i < query.ToList().Count(); i++)
+                if (dataGridView1.DataSource != null)
                 {
-                    quantityTotal += query[i].Quantity.Value;
-                    grandTotal += query[i].Price.Value;
+                    string selected = dataGridView1.SelectedRows[0].Cells["TransactionID"].Value.ToString();
+                    var query = (from dt in db.DetailTransaction 
+                                 join p in db.PriceList on dt.ProductID equals p.ProductID
+                                 where selected == dt.TransactionID
+                                 select new { p.ProductName, dt.Quantity, dt.Price }).ToList();
+                    dataGridView2.DataSource = query;
+                    int quantityTotal = 0;
+                    int grandTotal = 0;
+                    for (int i = 0; i < query.Count(); i++)
+                    {
+                        quantityTotal += query[i].Quantity.Value;
+                        grandTotal += query[i].Price.Value;
+                    }
+                    textBoxTotalQuantity.Text = quantityTotal.ToString();
+                    textBoxGrandTotal.Text = grandTotal.ToString();
                 }
-                textBoxTotalQuantity.Text = quantityTotal.ToString();
-                textBoxGrandTotal.Text = grandTotal.ToString();
             }
         }
-
-
         public void init_state_ViewTransaction()
         {
             textBoxTotalQuantity.Enabled = false;
@@ -97,7 +95,6 @@ namespace Project_OODB_Laundry_GroupH
                     checkStat.Status = "Washing";
                     db.SaveChanges();
                 }
-
                 else if(checkStat.Status == "Washing")
                 {
                     checkStat.Status = "Finished";

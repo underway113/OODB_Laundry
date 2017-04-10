@@ -51,19 +51,22 @@ namespace Project_OODB_Laundry_GroupH
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBoxUserID.Text = dataGridView1.SelectedRows[0].Cells["UserID"].Value.ToString();
-            textBoxUsername.Text = dataGridView1.SelectedRows[0].Cells["UserName"].Value.ToString();
-            textBoxPassword.Text = dataGridView1.SelectedRows[0].Cells["UserPassword"].Value.ToString();
-            textBoxEmail.Text = dataGridView1.SelectedRows[0].Cells["UserEmail"].Value.ToString();
-            richTextBoxAddress.Text = dataGridView1.SelectedRows[0].Cells["UserAddress"].Value.ToString();
-            textBoxPhoneNumber.Text = dataGridView1.SelectedRows[0].Cells["UserPhoneNumber"].Value.ToString();
-            if (dataGridView1.SelectedRows[0].Cells["RoleName"].Value.ToString()=="Admin")
+            if (e.RowIndex != -1)
             {
-                comboBoxRolename.Text = "Admin";
-            }
-            else if (dataGridView1.SelectedRows[0].Cells["RoleName"].Value.ToString() == "Member")
-            {
-                comboBoxRolename.Text = "Member";
+                textBoxUserID.Text = dataGridView1.SelectedRows[0].Cells["UserID"].Value.ToString();
+                textBoxUsername.Text = dataGridView1.SelectedRows[0].Cells["UserName"].Value.ToString();
+                textBoxPassword.Text = dataGridView1.SelectedRows[0].Cells["UserPassword"].Value.ToString();
+                textBoxEmail.Text = dataGridView1.SelectedRows[0].Cells["UserEmail"].Value.ToString();
+                richTextBoxAddress.Text = dataGridView1.SelectedRows[0].Cells["UserAddress"].Value.ToString();
+                textBoxPhoneNumber.Text = dataGridView1.SelectedRows[0].Cells["UserPhoneNumber"].Value.ToString();
+                if (dataGridView1.SelectedRows[0].Cells["RoleName"].Value.ToString() == "Admin")
+                {
+                    comboBoxRolename.Text = "Admin";
+                }
+                else if (dataGridView1.SelectedRows[0].Cells["RoleName"].Value.ToString() == "Member")
+                {
+                    comboBoxRolename.Text = "Member";
+                }
             }
         }
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

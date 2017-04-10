@@ -18,9 +18,6 @@ namespace Project_OODB_Laundry_GroupH
             InitializeComponent();
             loadData();
             init_state_order();
-            init_state_delete();
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
         string newId = "";
         public void loadData()
@@ -29,7 +26,7 @@ namespace Project_OODB_Laundry_GroupH
             var query = (from ht in db.HeaderTransaction 
                          join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
                          join p in db.PriceList on dt.ProductID equals p.ProductID
-                         where ht.UserID == textBoxUserID.Text && ht.Status == "Pending"
+                         where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
                          select new { dt.ProductID, p.ProductName, dt.Quantity, TotalPrice = dt.Price });
             dataGridView2.DataSource = query.ToList();
 
@@ -57,9 +54,7 @@ namespace Project_OODB_Laundry_GroupH
                     newId = "HT" + id;
                 }
             }
-           
             textBoxTransactionID.Text = newId;
-            
         }
         public void init_state_order()
         {
@@ -84,12 +79,6 @@ namespace Project_OODB_Laundry_GroupH
             textBoxProductID.Text = "";
             numericUpDownQuantityListLaundry.Value = 0;
         }
-        public void init_state_delete()
-        {
-            textBoxQuantityCart.Text = "0";
-            textBoxGrandTotal.Text = "0";
-            textBoxProductID.Text = "";
-        }
         public void refresh()
         {
             dataGridView1.DataSource = (from x in db.PriceList select new { x.ProductID, x.ProductName, x.ProductPrice }).ToList();
@@ -98,7 +87,24 @@ namespace Project_OODB_Laundry_GroupH
                          join p in db.PriceList on dt.ProductID equals p.ProductID
                          where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
                          select new { dt.ProductID, p.ProductName, dt.Quantity, TotalPrice = dt.Price });
-            dataGridView2.DataSource = query.ToList();
+            dataGridView2.DataSource = query.ToList(); 
+            textBoxProductID.Text = "";
+        }
+        public void calculate()
+        {
+            var query = (from dt in db.DetailTransaction
+                         join p in db.PriceList on dt.ProductID equals p.ProductID
+                         where textBoxTransactionID.Text == dt.TransactionID
+                         select new { dt.ProductID, p.ProductName, dt.Quantity, TotalPrice = dt.Price }).ToList();
+            int quantityTotal = 0;
+            int grandTotal = 0;
+            for (int i = 0; i < query.Count(); i++)
+            {
+                quantityTotal += query[i].Quantity.Value;
+                grandTotal += query[i].TotalPrice.Value;
+            }
+            textBoxQuantityCart.Text = quantityTotal.ToString();
+            textBoxGrandTotal.Text = grandTotal.ToString();
         }
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -110,7 +116,6 @@ namespace Project_OODB_Laundry_GroupH
         }
         private void buttonAddToCart_Click(object sender, EventArgs e)
         {
-
             if (dataGridView1.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Please Choose Laundry First");
@@ -132,8 +137,7 @@ namespace Project_OODB_Laundry_GroupH
                     checkPending.Quantity += Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
                     checkPending.Price = checkPending.Quantity*(Int32.Parse(textBoxPrice.Text));
                     db.SaveChanges();
-                    init_state_order();
-                    refresh();
+                    
                 }
                 else
                 {
@@ -171,13 +175,12 @@ namespace Project_OODB_Laundry_GroupH
                         db.DetailTransaction.Add(newDetailTrans);
                         db.SaveChanges();
                     }
-                    
-                    init_state_order();
-                    refresh();
                 }
+                init_state_order();
+                refresh();
+                calculate();
             }
         }
-        
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView2.SelectedRows.Count != 1)
@@ -186,16 +189,15 @@ namespace Project_OODB_Laundry_GroupH
             }
             else
             {
-                string selected = dataGridView2.SelectedRows[0].Cells["ProductID"].Value.ToString();
                 var checkdt = (from ht in db.HeaderTransaction
                                join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
-                               where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && selected == dt.ProductID
+                               where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && textBoxProductID.Text == dt.ProductID
                                select dt).FirstOrDefault();
                 MessageBox.Show("Deleted from Cart");
                 db.DetailTransaction.Remove(checkdt);
                 db.SaveChanges();
-                init_state_delete();
                 refresh();
+                calculate();
             }
         }
 
@@ -217,15 +219,19 @@ namespace Project_OODB_Laundry_GroupH
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBoxLaundryID.Text = dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString();
-            textBoxLaundryName.Text = dataGridView1.SelectedRows[0].Cells["ProductName"].Value.ToString();
-            textBoxPrice.Text = dataGridView1.SelectedRows[0].Cells["ProductPrice"].Value.ToString();
+            if (e.RowIndex != -1)
+            {
+                textBoxLaundryID.Text = dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString();
+                textBoxLaundryName.Text = dataGridView1.SelectedRows[0].Cells["ProductName"].Value.ToString();
+                textBoxPrice.Text = dataGridView1.SelectedRows[0].Cells["ProductPrice"].Value.ToString();
+            }
         }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBoxProductID.Text = dataGridView2.SelectedRows[0].Cells["ProductID"].Value.ToString();
-            textBoxQuantityCart.Text = dataGridView2.SelectedRows[0].Cells["Quantity"].Value.ToString();
-            textBoxGrandTotal.Text = dataGridView2.SelectedRows[0].Cells["TotalPrice"].Value.ToString();
+            if (e.RowIndex != -1)
+            {
+                textBoxProductID.Text = dataGridView2.SelectedRows[0].Cells["ProductID"].Value.ToString();
+            }
         }
     }
 }

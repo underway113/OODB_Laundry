@@ -63,14 +63,17 @@ namespace Project_OODB_Laundry_GroupH
         }
         public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string selected = dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString();
-            var query = (from u in db.Users
-                         join r in db.Review on u.UserID equals r.UserID
-                         join p in db.PriceList on r.ProductID equals p.ProductID
-                         where selected == r.ProductID && u.UserID == FormLogin.userIDGlobal
-                         select new { r.ReviewID, Review = r.Review1 });
-            dataGridView2.DataSource = query.ToList();
-            richTextBoxNewReview.Enabled = true;
+            if (e.RowIndex != -1)
+            {
+                string selected = dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString();
+                var query = (from u in db.Users
+                             join r in db.Review on u.UserID equals r.UserID
+                             join p in db.PriceList on r.ProductID equals p.ProductID
+                             where selected == r.ProductID && u.UserID == FormLogin.userIDGlobal
+                             select new { r.ReviewID, Review = r.Review1 });
+                dataGridView2.DataSource = query.ToList();
+                richTextBoxNewReview.Enabled = true;
+            }
         }
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {

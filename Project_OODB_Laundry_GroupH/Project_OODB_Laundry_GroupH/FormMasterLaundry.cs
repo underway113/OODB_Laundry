@@ -99,7 +99,6 @@ namespace Project_OODB_Laundry_GroupH
                 }
             }
            
-
             textBoxLaundryID.Enabled = false;
             textBoxLaundryName.Enabled = true;
             textBoxPrice.Enabled = true;
@@ -117,9 +116,12 @@ namespace Project_OODB_Laundry_GroupH
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBoxLaundryID.Text = dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString();
-            textBoxLaundryName.Text = dataGridView1.SelectedRows[0].Cells["ProductName"].Value.ToString();
-            textBoxPrice.Text = dataGridView1.SelectedRows[0].Cells["ProductPrice"].Value.ToString();
+            if (e.RowIndex != -1)
+            {
+                textBoxLaundryID.Text = dataGridView1.SelectedRows[0].Cells["ProductID"].Value.ToString();
+                textBoxLaundryName.Text = dataGridView1.SelectedRows[0].Cells["ProductName"].Value.ToString();
+                textBoxPrice.Text = dataGridView1.SelectedRows[0].Cells["ProductPrice"].Value.ToString();
+            }
         }
         
         private void buttonSave_Click(object sender, EventArgs e)
