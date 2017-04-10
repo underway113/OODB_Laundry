@@ -337,6 +337,7 @@
             this.MaximizeBox = false;
             this.Name = "FormOrder";
             this.Text = "Do Transaction";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormOrder_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantityListLaundry)).EndInit();
             this.groupBoxListLaundry.ResumeLayout(false);
             this.groupBoxListLaundry.PerformLayout();

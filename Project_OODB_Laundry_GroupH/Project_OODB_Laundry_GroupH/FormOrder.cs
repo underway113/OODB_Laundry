@@ -131,7 +131,6 @@ namespace Project_OODB_Laundry_GroupH
                                     join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
                                           where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && selected == dt.ProductID && ht.TransactionID == textBoxTransactionID.Text
                                           select dt ).FirstOrDefault();
-           
                 if (checkPending != null)
                 {
                     checkPending.Quantity += Convert.ToInt32(numericUpDownQuantityListLaundry.Value);
@@ -203,18 +202,29 @@ namespace Project_OODB_Laundry_GroupH
 
         private void buttonCheckOut_Click(object sender, EventArgs e)
         {
-            var checkStat = (from ht in db.HeaderTransaction
-                             join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
-                             where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
-                           select ht).ToList(); 
-            checkStat.Select(c => 
-                                {
-                                    c.Status = "Waiting"; return c;
-                                }).ToList();
-            db.SaveChanges();
-            MessageBox.Show("All of your Items have been Checked Out");
-            loadData();
-            init_state_order();
+            var checkIsThereItemInCart = (from ht in db.HeaderTransaction
+                                          join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
+                                          where ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
+                                          select dt).FirstOrDefault();
+            if (checkIsThereItemInCart == null)
+            {
+                MessageBox.Show("No Item in your cart !");
+            }
+            else
+            {
+                var checkStat = (from ht in db.HeaderTransaction
+                                 join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
+                                 where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
+                                 select ht).ToList();
+                checkStat.Select(c =>
+                {
+                    c.Status = "Waiting"; return c;
+                }).ToList();
+                db.SaveChanges();
+                MessageBox.Show("All of your Items have been Checked Out");
+                loadData();
+                init_state_order();
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -231,6 +241,48 @@ namespace Project_OODB_Laundry_GroupH
             if (e.RowIndex != -1)
             {
                 textBoxProductID.Text = dataGridView2.SelectedRows[0].Cells["ProductID"].Value.ToString();
+            }
+        }
+
+        private void FormOrder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var checkPendingforClosing = (from ht in db.HeaderTransaction
+                                          join dt in db.DetailTransaction on ht.TransactionID  equals dt.TransactionID
+                                        where ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text && dt.TransactionID!=null 
+                                        select ht).FirstOrDefault();
+            if (checkPendingforClosing != null)
+            {
+                DialogResult DialogResult = MessageBox.Show("Do you really want to exit?\n You have Item in Cart", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+                if (DialogResult == DialogResult.Yes)
+                {
+                    var checkStatdt = (from ht in db.HeaderTransaction
+                                       join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
+                                       where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
+                                       select dt).ToList();
+                    var checkStatht = (from ht in db.HeaderTransaction
+                                       join dt in db.DetailTransaction on ht.TransactionID equals dt.TransactionID
+                                       where ht.UserID == textBoxUserID.Text && ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
+                                       select ht).FirstOrDefault();
+                    db.DetailTransaction.RemoveRange(checkStatdt);
+                    db.SaveChanges();
+                    db.HeaderTransaction.Remove(checkStatht);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                var checkStatht = (from ht in db.HeaderTransaction
+                                   where ht.Status == "Pending" && ht.TransactionID == textBoxTransactionID.Text
+                                   select ht).FirstOrDefault();
+               if (checkStatht != null)
+                { 
+                    db.HeaderTransaction.Remove(checkStatht);
+                    db.SaveChanges();
+                }
             }
         }
     }
