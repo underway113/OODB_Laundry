@@ -211,8 +211,8 @@ namespace Project_OODB_Laundry_GroupH
             DialogResult DialogResult = MessageBox.Show("Do you really want to exit?", "Confirmation",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (DialogResult == DialogResult.Yes)
-            { 
-                System.Windows.Forms.Application.Exit();
+            {
+                System.Environment.Exit(1);
             }
             else
             {

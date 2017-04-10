@@ -135,7 +135,7 @@ namespace Project_OODB_Laundry_GroupH
                    MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (DialogResult == DialogResult.Yes)
             {
-                System.Windows.Forms.Application.Exit();
+                System.Environment.Exit(1);
             }
             else
             {
