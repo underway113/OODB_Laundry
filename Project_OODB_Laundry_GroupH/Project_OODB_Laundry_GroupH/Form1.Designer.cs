@@ -91,6 +91,7 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(219, 29);
             this.textBoxEmail.TabIndex = 1;
+            this.textBoxEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxEmail_KeyDown);
             // 
             // textBoxPassword
             // 

@@ -97,6 +97,7 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(187, 29);
             this.textBoxEmail.TabIndex = 1;
+            this.textBoxEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxEmail_KeyDown);
             // 
             // textBoxOldPassword
             // 
@@ -106,6 +107,7 @@
             this.textBoxOldPassword.Size = new System.Drawing.Size(187, 29);
             this.textBoxOldPassword.TabIndex = 2;
             this.textBoxOldPassword.UseSystemPasswordChar = true;
+            this.textBoxOldPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxOldPassword_KeyDown);
             // 
             // textBoxNewPassword
             // 
@@ -115,6 +117,7 @@
             this.textBoxNewPassword.Size = new System.Drawing.Size(187, 29);
             this.textBoxNewPassword.TabIndex = 3;
             this.textBoxNewPassword.UseSystemPasswordChar = true;
+            this.textBoxNewPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxNewPassword_KeyDown);
             // 
             // textBoxConfirmPassword
             // 

@@ -123,6 +123,7 @@
             this.linkLabelSignIn.Name = "linkLabelSignIn";
             this.linkLabelSignIn.Size = new System.Drawing.Size(344, 24);
             this.linkLabelSignIn.TabIndex = 8;
+            this.linkLabelSignIn.TabStop = true;
             this.linkLabelSignIn.Text = "Already Have an Account? Sign in Here";
             this.linkLabelSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSignIn_LinkClicked);
             // 
@@ -145,6 +146,7 @@
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(222, 29);
             this.textBoxUsername.TabIndex = 1;
+            this.textBoxUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUsername_KeyDown);
             // 
             // textBoxPassword
             // 
@@ -154,6 +156,7 @@
             this.textBoxPassword.Size = new System.Drawing.Size(222, 29);
             this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
             // textBoxConfirmPassword
             // 
@@ -163,6 +166,7 @@
             this.textBoxConfirmPassword.Size = new System.Drawing.Size(222, 29);
             this.textBoxConfirmPassword.TabIndex = 3;
             this.textBoxConfirmPassword.UseSystemPasswordChar = true;
+            this.textBoxConfirmPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxConfirmPassword_KeyDown);
             // 
             // textBoxEmail
             // 
@@ -171,6 +175,7 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(222, 29);
             this.textBoxEmail.TabIndex = 4;
+            this.textBoxEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxEmail_KeyDown);
             // 
             // textBoxPhoneNumber
             // 
@@ -179,6 +184,7 @@
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(222, 29);
             this.textBoxPhoneNumber.TabIndex = 5;
+            this.textBoxPhoneNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPhoneNumber_KeyDown);
             // 
             // richTextBoxAddress
             // 

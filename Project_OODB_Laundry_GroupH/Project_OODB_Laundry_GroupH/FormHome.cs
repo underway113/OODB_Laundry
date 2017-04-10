@@ -206,5 +206,11 @@ namespace Project_OODB_Laundry_GroupH
             this.Visible = false;
             form.Visible = true;
         }
+
+        private void FormHome_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var window = MessageBox.Show("Do you really want to Exit?", "Confirmation", MessageBoxButtons.YesNo);
+            e.Cancel = (window == DialogResult.No);
+        }
     }
 }

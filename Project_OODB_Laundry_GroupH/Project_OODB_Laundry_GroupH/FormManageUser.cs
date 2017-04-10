@@ -315,5 +315,45 @@ namespace Project_OODB_Laundry_GroupH
             init_state_ManageUser();
             loadData();
         }
+
+        private void textBoxUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonSave_Click(this, new EventArgs());
+            }
+        }
+
+        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonSave_Click(this, new EventArgs());
+            }
+        }
+
+        private void textBoxEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonSave_Click(this, new EventArgs());
+            }
+        }
+
+        private void richTextBoxAddress_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonSave_Click(this, new EventArgs());
+            }
+        }
+
+        private void textBoxPhoneNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonSave_Click(this, new EventArgs());
+            }
+        }
     }
 }

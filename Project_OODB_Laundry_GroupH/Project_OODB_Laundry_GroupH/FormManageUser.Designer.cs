@@ -99,6 +99,7 @@
             this.richTextBoxAddress.Size = new System.Drawing.Size(162, 74);
             this.richTextBoxAddress.TabIndex = 4;
             this.richTextBoxAddress.Text = "";
+            this.richTextBoxAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxAddress_KeyDown);
             // 
             // textBoxPhoneNumber
             // 
@@ -107,6 +108,7 @@
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(162, 29);
             this.textBoxPhoneNumber.TabIndex = 5;
+            this.textBoxPhoneNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPhoneNumber_KeyDown);
             // 
             // textBoxEmail
             // 
@@ -115,6 +117,7 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(183, 29);
             this.textBoxEmail.TabIndex = 3;
+            this.textBoxEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxEmail_KeyDown);
             // 
             // textBoxPassword
             // 
@@ -123,6 +126,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(183, 29);
             this.textBoxPassword.TabIndex = 2;
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
             // textBoxUsername
             // 
@@ -131,6 +135,7 @@
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(183, 29);
             this.textBoxUsername.TabIndex = 1;
+            this.textBoxUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUsername_KeyDown);
             // 
             // textBoxUserID
             // 

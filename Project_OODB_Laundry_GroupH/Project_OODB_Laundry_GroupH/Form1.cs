@@ -102,6 +102,7 @@ namespace Project_OODB_Laundry_GroupH
                     this.Visible = false;
                     form.Visible = true;
                 }
+                textBoxPassword.Text = "";
             }
         }
 
@@ -113,6 +114,14 @@ namespace Project_OODB_Laundry_GroupH
         }
 
         private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonLogin_Click(this, new EventArgs());
+            }
+        }
+
+        private void textBoxEmail_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

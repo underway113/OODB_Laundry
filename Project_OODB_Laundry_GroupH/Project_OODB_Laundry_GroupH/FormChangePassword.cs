@@ -79,5 +79,29 @@ namespace Project_OODB_Laundry_GroupH
                 buttonChangePassword_Click(this, new EventArgs());
             }
         }
+
+        private void textBoxEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonChangePassword_Click(this, new EventArgs());
+            }
+        }
+
+        private void textBoxOldPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonChangePassword_Click(this, new EventArgs());
+            }
+        }
+
+        private void textBoxNewPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonChangePassword_Click(this, new EventArgs());
+            }
+        }
     }
 }
