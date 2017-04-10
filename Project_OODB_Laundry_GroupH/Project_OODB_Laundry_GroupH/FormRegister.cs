@@ -214,5 +214,19 @@ namespace Project_OODB_Laundry_GroupH
                 buttonRegister_Click(this, new EventArgs());
             }
         }
+
+        private void FormRegister_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult DialogResult = MessageBox.Show("Do you really want to exit?", "Confirmation",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+            if (DialogResult == DialogResult.Yes)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

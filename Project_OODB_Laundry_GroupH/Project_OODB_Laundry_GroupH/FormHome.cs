@@ -48,7 +48,6 @@ namespace Project_OODB_Laundry_GroupH
         FormChangePassword formChangePassword;
         FormOrder formOrder;
         FormReview formReview;
-
         private void manageProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(formMasterLaundry == null)
@@ -209,8 +208,16 @@ namespace Project_OODB_Laundry_GroupH
 
         private void FormHome_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var window = MessageBox.Show("Do you really want to Exit?", "Confirmation", MessageBoxButtons.YesNo);
-            e.Cancel = (window == DialogResult.No);
+            DialogResult DialogResult = MessageBox.Show("Do you really want to exit?", "Confirmation",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+            if (DialogResult == DialogResult.Yes)
+            { 
+                System.Windows.Forms.Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
