@@ -30,6 +30,7 @@ namespace Project_OODB_Laundry_GroupH
         private static string _passwordGlobal = "";
         private static string _emailGlobal = "";
         private static string _userIDGlobal = "";
+        private static string _userNameGlobal = "";
         public static string roleGlobal
         {
             get
@@ -62,7 +63,13 @@ namespace Project_OODB_Laundry_GroupH
                 return _userIDGlobal;
             }
         }
-
+        public static string userNamelobal
+        {
+            get
+            {
+                return _userNameGlobal;
+            }
+        }
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             string email = textBoxEmail.Text;
@@ -90,6 +97,7 @@ namespace Project_OODB_Laundry_GroupH
                     _emailGlobal = user.UserEmail;
                     _passwordGlobal = user.UserPassword;
                     _userIDGlobal = user.UserID;
+                    _userNameGlobal = user.UserName;
                     Form form = new FormHome();
                     this.Visible = false;
                     form.Visible = true;
