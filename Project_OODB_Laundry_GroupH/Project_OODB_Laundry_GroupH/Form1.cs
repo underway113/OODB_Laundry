@@ -18,6 +18,7 @@ namespace Project_OODB_Laundry_GroupH
             InitializeComponent();
             init_state_login();
             this.ActiveControl = textBoxEmail;
+            labelVersion.Text = "V" + Application.ProductVersion;
         }
 
         public void init_state_login()
