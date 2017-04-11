@@ -207,7 +207,7 @@ namespace Project_OODB_Laundry_GroupH
 
         private void FormHome_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult DialogResult = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+            DialogResult DialogResult = MessageBox.Show("Do you really want to exit?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DialogResult == DialogResult.Yes)
             {
                 System.Environment.Exit(1);
