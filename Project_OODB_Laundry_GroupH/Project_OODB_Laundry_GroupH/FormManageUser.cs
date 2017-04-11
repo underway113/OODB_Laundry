@@ -216,9 +216,18 @@ namespace Project_OODB_Laundry_GroupH
                 if (dialogResult == DialogResult.Yes)
                 {
                     var user = (from x in db.Users where x.UserID == textBoxUserID.Text select x).FirstOrDefault();
-                    db.Users.Remove(user);
-                    db.SaveChanges();
-                    MessageBox.Show("Succesfully delete a user");
+
+                    try
+                    {
+                        db.Users.Remove(user);
+                        db.SaveChanges();
+                        MessageBox.Show("Succesfully delete a user");
+                    }
+                    catch (System.Data.Entity.Infrastructure.DbUpdateException)
+                    {
+                        MessageBox.Show("Sorry, You can't delete this User.\nPlease contact your support!", "Error Message!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
                 }
                 else if (dialogResult == DialogResult.No)
                 {

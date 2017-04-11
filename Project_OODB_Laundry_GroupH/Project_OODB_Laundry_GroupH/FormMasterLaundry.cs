@@ -204,9 +204,17 @@ namespace Project_OODB_Laundry_GroupH
                 if (dialogResult == DialogResult.Yes)
                 {
                     var priceList = (from x in db.PriceList where x.ProductID == textBoxLaundryID.Text select x).FirstOrDefault();
-                    db.PriceList.Remove(priceList);
-                    db.SaveChanges();
-                    MessageBox.Show("Succesfully delete a product"); 
+                    try
+                    {
+                        db.PriceList.Remove(priceList);
+                        db.SaveChanges();
+                        MessageBox.Show("Succesfully delete a product");
+                    }
+                    catch (System.Data.Entity.Infrastructure.DbUpdateException)
+                    {
+                        MessageBox.Show("Sorry, You can't delete this Item.\nPlease contact your support!","Error Message!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
                 }
                 else if (dialogResult == DialogResult.No)
                 {
