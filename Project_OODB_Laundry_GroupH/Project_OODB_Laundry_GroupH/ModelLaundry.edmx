@@ -252,7 +252,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HeaderTransaction_Users">
-          <End Type="DatabaseLaundryModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="DatabaseLaundryModel.Users" Role="Users" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="DatabaseLaundryModel.HeaderTransaction" Role="HeaderTransaction" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">

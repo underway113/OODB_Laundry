@@ -212,28 +212,35 @@ namespace Project_OODB_Laundry_GroupH
             }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure want to delete this user?", "Confirmation Message", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if (FormLogin.userIDGlobal != textBoxUserID.Text)
                 {
-                    var user = (from x in db.Users where x.UserID == textBoxUserID.Text select x).FirstOrDefault();
-
-                    try
+                    DialogResult dialogResult = MessageBox.Show("Are you sure want to delete this user?", "Confirmation Message", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        db.Users.Remove(user);
-                        db.SaveChanges();
-                        MessageBox.Show("Succesfully delete a user");
+                        try
+                        {
+                            var user = (from x in db.Users where x.UserID == textBoxUserID.Text select x).FirstOrDefault();
+                            db.Users.Remove(user);
+                            db.SaveChanges();
+                            MessageBox.Show("Succesfully delete a user");
+                        }
+                        catch (System.Data.Entity.Infrastructure.DbUpdateException)
+                        {
+                           MessageBox.Show("Sorry, You can't delete this User.\nPlease contact your support!", "Error Message!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                           this.Close();
+                        }
                     }
-                    catch (System.Data.Entity.Infrastructure.DbUpdateException)
+                    else if (dialogResult == DialogResult.No)
                     {
-                        MessageBox.Show("Sorry, You can't delete this User.\nPlease contact your support!", "Error Message!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.Close();
                     }
+                    loadData();
+                    init_state_ManageUser();
                 }
-                else if (dialogResult == DialogResult.No)
+                else
                 {
+                    MessageBox.Show("Sorry, You can't delete yourself!", "Fatal Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                loadData();
-                init_state_ManageUser();
+                
             }
         }
 
