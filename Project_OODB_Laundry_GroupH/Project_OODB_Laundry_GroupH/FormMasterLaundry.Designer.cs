@@ -229,6 +229,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMasterLaundry";
             this.Text = "Laundry";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormMasterLaundry_KeyDown);
             this.groupBoxDetail.ResumeLayout(false);
             this.groupBoxDetail.PerformLayout();
             this.groupBoxController.ResumeLayout(false);

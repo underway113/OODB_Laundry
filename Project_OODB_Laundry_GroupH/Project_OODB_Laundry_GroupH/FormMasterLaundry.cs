@@ -98,7 +98,7 @@ namespace Project_OODB_Laundry_GroupH
                     newId = "PD" + id;
                 }
             }
-           
+            
             textBoxLaundryID.Enabled = false;
             textBoxLaundryName.Enabled = true;
             textBoxPrice.Enabled = true;
@@ -110,7 +110,7 @@ namespace Project_OODB_Laundry_GroupH
             buttonDelete.Enabled = false;
             buttonSave.Enabled = true;
             buttonCancel.Enabled = true;
-
+            this.ActiveControl = textBoxLaundryName;
             flagInsert = 1;
         }
 
@@ -209,6 +209,17 @@ namespace Project_OODB_Laundry_GroupH
                         db.PriceList.Remove(priceList);
                         db.SaveChanges();
                         MessageBox.Show("Succesfully delete a product");
+                        var headerTrans = (from ht in db.HeaderTransaction
+                                           select ht).ToList();
+                        for(int i = 0; i < headerTrans.Count(); i++)
+                        {
+                            if (headerTrans[i].DetailTransaction.Any() == false)
+                            {
+                                db.HeaderTransaction.Remove(headerTrans[i]);
+                                db.SaveChanges();
+                            }
+                        }
+                        
                     }
                     catch (System.Data.Entity.Infrastructure.DbUpdateException)
                     {
@@ -245,6 +256,14 @@ namespace Project_OODB_Laundry_GroupH
             if (e.KeyCode == Keys.Enter)
             {
                 buttonUpdate_Click(this, new EventArgs());
+            }
+        }
+
+        private void FormMasterLaundry_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonInsert_Click(this, new EventArgs());
             }
         }
     }
