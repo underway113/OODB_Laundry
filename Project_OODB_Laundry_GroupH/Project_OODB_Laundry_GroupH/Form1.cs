@@ -13,6 +13,7 @@ namespace Project_OODB_Laundry_GroupH
     public partial class FormLogin : Form
     {
         DatabaseLaundryEntities1 db = new DatabaseLaundryEntities1();
+        
         public FormLogin()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace Project_OODB_Laundry_GroupH
         {
             textBoxEmail.Text = "";
             textBoxPassword.Text = "";
+            checkBoxTogglePass.Checked = false;
         }
 
         private static string _roleGlobal="";
@@ -141,6 +143,18 @@ namespace Project_OODB_Laundry_GroupH
             {
                 e.Cancel = true;
             }
+        }
+
+        private void checkBoxTogglePass_MouseUp(object sender, MouseEventArgs e)
+        {
+            checkBoxTogglePass.Checked = false;
+            textBoxPassword.UseSystemPasswordChar = true;
+        }
+
+        private void checkBoxTogglePass_MouseDown(object sender, MouseEventArgs e)
+        {
+            checkBoxTogglePass.Checked = true;
+            textBoxPassword.UseSystemPasswordChar = false;
         }
     }
 }

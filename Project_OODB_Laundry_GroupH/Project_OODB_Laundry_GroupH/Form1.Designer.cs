@@ -35,6 +35,7 @@
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
+            this.checkBoxTogglePass = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -118,12 +119,25 @@
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
+            // checkBoxTogglePass
+            // 
+            this.checkBoxTogglePass.AutoSize = true;
+            this.checkBoxTogglePass.BackColor = System.Drawing.Color.White;
+            this.checkBoxTogglePass.Location = new System.Drawing.Point(371, 153);
+            this.checkBoxTogglePass.Name = "checkBoxTogglePass";
+            this.checkBoxTogglePass.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxTogglePass.TabIndex = 5;
+            this.checkBoxTogglePass.UseVisualStyleBackColor = false;
+            this.checkBoxTogglePass.MouseDown += new System.Windows.Forms.MouseEventHandler(this.checkBoxTogglePass_MouseDown);
+            this.checkBoxTogglePass.MouseUp += new System.Windows.Forms.MouseEventHandler(this.checkBoxTogglePass_MouseUp);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkTurquoise;
             this.ClientSize = new System.Drawing.Size(443, 368);
+            this.Controls.Add(this.checkBoxTogglePass);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxEmail);
@@ -153,6 +167,7 @@
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.CheckBox checkBoxTogglePass;
     }
 }
 
